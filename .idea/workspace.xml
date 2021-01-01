@@ -3,11 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="6264d4ae-d470-463e-8e4d-7ee2311254bd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/admin/admin-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/admin/admin-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/admin/components/sidenavs/student-info-sidenav/student-info-sidenav.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/admin/components/sidenavs/student-info-sidenav/student-info-sidenav.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/admin/components/sidenavs/student-info-sidenav/student-info-sidenav.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/admin/components/sidenavs/student-info-sidenav/student-info-sidenav.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/admin/components/sidenavs/student-info-sidenav/student-info-sidenav.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/admin/components/sidenavs/student-info-sidenav/student-info-sidenav.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/auth/auth-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/auth/auth-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/admin/components/dialogs/add-or-edit-senior-student-dialog/add-or-edit-senior-student-dialog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/admin/components/dialogs/add-or-edit-senior-student-dialog/add-or-edit-senior-student-dialog.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/public/components/students/students.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/public/components/students/students.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/public/components/students/students.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/public/components/students/students.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/public/services/students.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/public/services/students.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1609486491042</updated>
       <workItem from="1609486492298" duration="5721000" />
-      <workItem from="1609492262278" duration="3933000" />
+      <workItem from="1609492262278" duration="4340000" />
     </task>
     <servers />
   </component>

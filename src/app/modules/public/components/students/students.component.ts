@@ -167,7 +167,7 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
 
         this.dataSource.sort = this.sort;
         this.length = students.length;
-        this.pageSize = 1;
+        this.pageSize = 100;
         // this.gridFilterData['limit'] = res['data'].limit;
         this.tableLength = students.length;
 

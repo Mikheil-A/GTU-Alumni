@@ -22,15 +22,15 @@ export class StudentsService {
   }
 
   add(data: object) {
-    return this._httpClient.post('/api/users', data);
+    return this._httpClient.post('/api/students', data);
   }
 
   update(data: object) {
-    return this._httpClient.put(`/api/users/${data['id']}`, data);
+    return this._httpClient.patch(`/api/students/${data['id']}`, data);
   }
 
   delete(studentId: number) {
-    return this._httpClient.delete(`/api/users/${studentId}`);
+    return this._httpClient.delete(`/api/students/${studentId}`);
   }
 
   getStudent(userId: string) {
