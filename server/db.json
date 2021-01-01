@@ -13,7 +13,16 @@
       "employed": true,
       "full_name": "Mikheil Aleksidze",
       "hobby": null,
-      "profile_name": "student"
+      "profile_name": "student",
+      "user_portfolios": [
+        {
+          "job_title": "programmer",
+          "company_name": "google",
+          "description": "just coding",
+          "start_date": "2022-04-05",
+          "end_date": "present"
+        }
+      ]
     },
     {
       "id": 66,

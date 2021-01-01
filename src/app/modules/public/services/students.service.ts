@@ -6,7 +6,10 @@ import { User } from '../../auth/components/authentication/sign-in/sign-in.compo
 
 @Injectable()
 export class StudentsService {
-  constructor(private _httpClient: HttpClient, private _authService: AuthService) {}
+  constructor(
+    private _httpClient: HttpClient,
+    private _authService: AuthService,
+  ) {}
 
   /**
    * TODO: create an interceptor:

@@ -173,9 +173,7 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
 
         this._determineAdmin();
       },
-      (err) => {
-        console.log('err', err);
-      },
+      () => {},
       () => {
         setTimeout(() => {
           this._ngxSpinnerService.hide();

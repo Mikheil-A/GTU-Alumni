@@ -24,7 +24,8 @@ export class StudentComponent implements OnInit {
 
   ngOnInit() {
     // a user can only edit their profile
-    this.canEditTheProfile = this.studentId == JSON.parse(localStorage.getItem('userData')).id;
+    this.canEditTheProfile =
+      this.studentId === JSON.parse(localStorage.getItem('user')).id;
     this.fetchStudentInfo(this.studentId);
   }
 
@@ -37,13 +38,13 @@ export class StudentComponent implements OnInit {
 
     this._studentsService.getStudent(id).subscribe(
       (res: User[]) => {
-        this.studentInfo = res[0];
+        if (res.length) {
+          this.studentInfo = res[0];
+          console.log('this.studentInfo', this.studentInfo);
+        }
       },
       (err) => {
-        // if (err.status === 401) {
-        //   this._ngxSpinnerService.hide();
-        //   this._router.navigate(['auth/sign-in']);
-        // }
+        console.log(err);
       },
       () => {
         setTimeout(() => {
