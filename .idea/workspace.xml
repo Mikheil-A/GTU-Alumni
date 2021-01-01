@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6264d4ae-d470-463e-8e4d-7ee2311254bd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/GTU-Alumni.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/admin/components/student/personal-info/personal-info.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/admin/components/student/personal-info/personal-info.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/admin/components/student/student.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/admin/components/student/student.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/admin/components/student/work-experience/work-experience.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/admin/components/student/work-experience/work-experience.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/public/components/students/students.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/public/components/students/students.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/public/services/students.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/public/services/students.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1609486491042</updated>
       <workItem from="1609486492298" duration="5721000" />
-      <workItem from="1609492262278" duration="5030000" />
+      <workItem from="1609492262278" duration="5236000" />
     </task>
     <servers />
   </component>
