@@ -69,7 +69,13 @@ export class StudentsService {
     return this._httpClient.patch(`/api/students/${data.studentId}`, {
       user_portfolios: [
         ...data.studentInfo.user_portfolios,
-        data.newWorkExperience,
+        {
+          ...data.newWorkExperience,
+          id:
+            data.studentInfo.user_portfolios[
+              data.studentInfo.user_portfolios.length - 1
+            ].id + 1,
+        },
       ],
     });
   }

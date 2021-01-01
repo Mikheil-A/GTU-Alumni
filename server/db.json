@@ -25,12 +25,12 @@
           "end_date": "present"
         },
         {
-          "id": 2,
-          "company_name": "compnay",
+          "company_name": "company",
           "job_title": "position",
           "description": "desc",
           "start_date": "2021-01-04T20:00:00.000Z",
-          "end_date": "2021-01-29T20:00:00.000Z"
+          "end_date": "2021-01-29T20:00:00.000Z",
+          "id": 2
         }
       ]
     },
