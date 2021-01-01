@@ -26,10 +26,9 @@
     <div class="expansion-panel-content">
       <span>{{ workExperience['description'] }}</span>
       <span
-        >{{ workExperience['start_date'] }} -
-        {{ workExperience['end_date'] }}</span
+        >{{ workExperience['start_date'] | date: 'dd-MM-yyyy' }} -
+        {{ workExperience['end_date'] | date: 'dd-MM-yyyy' }}</span
       >
-
       <div>
         <button
           mat-button

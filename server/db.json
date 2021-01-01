@@ -23,6 +23,14 @@
           "description": "just coding",
           "start_date": "2022-04-05",
           "end_date": "present"
+        },
+        {
+          "id": 2,
+          "company_name": "compnay",
+          "job_title": "position",
+          "description": "desc",
+          "start_date": "2021-01-04T20:00:00.000Z",
+          "end_date": "2021-01-29T20:00:00.000Z"
         }
       ]
     },

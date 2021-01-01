@@ -26,7 +26,10 @@ export class WorkExperienceComponent {
     const dialogRef = this._matDialog.open(
       AddOrEditWorkExperienceDialogComponent,
       {
-        data: clickedWorkExperience,
+        data: {
+          clickedWorkExperience,
+          studentInfo: this.studentInfo,
+        },
       },
     );
 
