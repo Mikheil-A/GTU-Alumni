@@ -44,8 +44,10 @@ export class AuthService {
     this._router.navigate(['auth']);
   }
 
-  changePassword(data: object) {
-    return this._httpClient.post('/api/users/password_reset', data);
+  changePassword(data: any) {
+    return this._httpClient.patch(`/api/accounts/${data.id}`, {
+      password: data.new_password,
+    });
   }
 
   public handleUnauthorizedError() {
@@ -69,24 +71,18 @@ export class AuthService {
     localStorage.clear();
   }
 
+  get getLoggedInUser(): User {
+    return JSON.parse(localStorage.getItem('user'));
+  }
+
   get isLoggedIn(): boolean {
-    return localStorage.getItem('access_token') ? true : false;
+    return localStorage.getItem('user') ? true : false;
   }
 
   get isAdmin(): boolean {
     if (!this.isLoggedIn) {
       return;
     }
-    let profile = JSON.parse(localStorage.getItem('userData'));
-    // let profile = JSON.parse(localStorage.getItem('profile_id'));
-    // return profile === 2; // if profile_id is 2, it's admin
-    if (!profile) {
-      setTimeout(() => {
-        profile = JSON.parse(localStorage.getItem('userData'));
-      }, 750);
-      if (profile) return profile.profile_id === 2;
-    } else {
-      return profile.profile_id === 2;
-    }
+    return this.getLoggedInUser.admin;
   }
 }
