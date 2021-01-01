@@ -98,8 +98,16 @@
   ],
   "accounts": [
     {
+      "id": 1,
       "username": "admin",
-      "password": "admin"
+      "password": "admin",
+      "admin": true
+    },
+    {
+      "id": 2,
+      "username": "staff",
+      "password": "staff",
+      "admin": false
     }
   ]
 }
