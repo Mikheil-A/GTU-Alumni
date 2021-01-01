@@ -1,0 +1,87 @@
+mat-sidenav-container {
+  ::ng-deep {
+    .mat-drawer-backdrop.mat-drawer-shown {
+      background-color: transparent;
+    }
+
+    // making a sidenav close on outer click
+    .mat-drawer-backdrop {
+      position: fixed;
+      height: 115vh;
+    }
+  }
+
+  #table-container {
+
+    .editButton {
+      color: rgba(250, 190, 58, .7);
+    }
+
+    .editButton:hover {
+      color: rgba(250, 190, 58, 1);
+    }
+
+    .addButton {
+      color: #407d41;
+    }
+
+    .addButton {
+      color: green;
+    }
+
+    .deleteButton {
+      color: #f63636;
+    }
+
+    .deleteButton:hover {
+      color: #bb0000;
+    }
+
+    .editButton:disabled {
+      color: #a4a4a4
+    }
+
+    .addButton:disabled {
+      color: #a4a4a4
+    }
+
+    .deleteButton:disabled {
+      color: #a4a4a4
+    }
+
+    margin: 0 60px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .1);
+
+    #table-header {
+      display: flex;
+      flex-direction: row;
+      font-size: 14px;
+      padding: 12px 24px;
+      box-shadow: 0 1px 0 #e0e0e0;
+
+      .mat-form-field {
+        flex-grow: 1;
+      }
+    }
+
+    mat-sidenav-content {
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+
+      tr {
+        &:hover {
+          background-color: #f7f7fa;
+        }
+
+        td {
+          &.mat-column-isEmployed, &.mat-column-editAndDeleteIcons {
+            width: 150px;
+          }
+        }
+      }
+    }
+  }
+}

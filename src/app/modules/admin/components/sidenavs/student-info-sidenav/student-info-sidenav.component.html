@@ -1,0 +1,28 @@
+<div class="maindiv" *ngIf="studentInfo">
+
+  <header>
+    <h1>{{studentInfo.name}} {{studentInfo.last_name}}</h1>
+
+    <a class="nBtn" [routerLink]="'/student/' + studentId" target="_blank"
+       matTooltip="ახალ ტაბში გახსნა">
+      <mat-icon color="accent">open_in_new</mat-icon>
+    </a>
+  </header>
+
+  <div class="main">
+    <div class="imageDiv">
+      <img class="image"
+           [src]="studentInfo['image_base64'] || '../../../../../../assets/images/icon-student.png'"
+           alt="პროფილის სურათი"/>
+    </div>
+    <hr/>
+    <ul>
+      <li>ელ. მისამართი: {{studentInfo.email}}</li>
+      <li>დასაქმების სტატუსი: {{studentInfo.employed ? 'დასაქმებულია' : 'არ არის დასაქმებული'}}</li>
+      <li>ჰობი: {{studentInfo.hobby}}</li>
+      <li>პროფილის სტატუსი: {{studentInfo.profile.name}}</li>
+      <li>დამთავრება: {{studentInfo.graduate_date}}</li>
+    </ul>
+  </div>
+
+</div>

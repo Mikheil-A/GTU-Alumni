@@ -1,0 +1,18 @@
+<h1>ელ. ფოსტის გაგზავნა</h1>
+
+<form [formGroup]="sendEmailFormGroup" (ngSubmit)="send()">
+  <mat-form-field appearance="outline">
+    <mat-label>სათაური</mat-label>
+    <input type="text" formControlName="subject" matInput placeholder="სათაური" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>ტექსტი</mat-label>
+    <textarea formControlName="body" matInput placeholder="ტექსტი" required></textarea>
+  </mat-form-field>
+
+  <button mat-button type="submit"
+          class="big-button-style"
+          [ngStyle]="{'cursor': sendEmailFormGroup.invalid ? 'not-allowed' : 'pointer'}">გაგზავნა
+  </button>
+</form>

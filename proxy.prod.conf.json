@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "https://polar-wave-32925.herokuapp.com",
+    "secure": false,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "changeOrigin": true
+  }
+}

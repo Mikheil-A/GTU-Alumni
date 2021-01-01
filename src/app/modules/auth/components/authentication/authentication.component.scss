@@ -1,0 +1,19 @@
+#auth-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  //background: url('https://d3ui957tjb5bqd.cloudfront.net/images/screenshots/products/0/8/8905/red-rocks-park-o.jpg') -25px -50px;
+  background-image: linear-gradient(to right bottom, rgba(17, 98, 192, 0.2), rgba(17, 98, 192, 0.2)), url("../../../../../assets/images/auth/ganivi.jpg");
+  position: fixed;
+  top: 0;
+  z-index: 0;
+  background-size: calc(100% + 50px);
+
+  #form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,74 @@
+<div id="dialog-container">
+  <h1>სტუდენტის {{addOrEditTitle}}</h1>
+
+  <form [formGroup]="formGroup" (ngSubmit)="save()">
+    <mat-form-field appearance="outline" style="grid-area: firstName">
+      <mat-label>სახელი</mat-label>
+      <input type="text" formControlName="name" matInput placeholder="სახელი" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="grid-area: lastName">
+      <mat-label>გვარი</mat-label>
+      <input type="text" formControlName="last_name" matInput placeholder="გვარი" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="grid-area: address">
+      <mat-label>მეილი</mat-label>
+      <input type="email" formControlName="email" matInput placeholder="მეილი" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="grid-area: birthDate">
+      <input formControlName="birth_date" matInput [matDatepicker]="birthDatePicker"
+             placeholder="დაბადების თარიღი">
+      <mat-datepicker-toggle matSuffix [for]="birthDatePicker">
+        <mat-icon matDatepickerToggleIcon>calendar_today</mat-icon>
+      </mat-datepicker-toggle>
+      <mat-datepicker #birthDatePicker></mat-datepicker>
+    </mat-form-field>
+
+    <div style="grid-area: applyDate; display: flex; flex-direction: column">
+      <label>უნივერსიტეტის დაწყების თარიღი</label>
+      <mat-form-field appearance="outline">
+        <input formControlName="apply_date" matInput [matDatepicker]="applyDatePicker"
+               placeholder="უნივერსიტეტის დაწყების თარიღი">
+        <mat-datepicker-toggle matSuffix [for]="applyDatePicker">
+          <mat-icon matDatepickerToggleIcon>calendar_today</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker #applyDatePicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div style="grid-area: graduateDate; display: flex; flex-direction: column">
+      <label>უნივერსიტეტის დამთავრების თარიღი</label>
+      <mat-form-field appearance="outline">
+        <input formControlName="graduate_date" matInput [matDatepicker]="graduateDatePicker"
+               placeholder="უნივერსიტეტის დამთავრების თარიღი">
+        <mat-datepicker-toggle matSuffix [for]="graduateDatePicker">
+          <mat-icon matDatepickerToggleIcon>calendar_today</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker #graduateDatePicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div style="grid-area: userStatus; display: flex; flex-direction: column">
+      <label>მომხმარებლის სტატუსი</label>
+      <mat-form-field appearance="outline">
+        <mat-select formControlName="profile_id">
+          <mat-option [value]="1">სტუდენტი</mat-option>
+          <mat-option [value]="2">ადმინი</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <mat-checkbox formControlName="employed" style="grid-area: employmentStatus">დასაქმებულია</mat-checkbox>
+
+
+    <button mat-button type="submit"
+            class="big-button-style"
+            style="grid-area: submitBtn"
+            [ngStyle]="{'cursor': formGroup.invalid ? 'not-allowed' : 'pointer'}">შენახვა
+    </button>
+  </form>
+</div>
+
+<!--<button (click)="save()">TEST ADD</button>-->

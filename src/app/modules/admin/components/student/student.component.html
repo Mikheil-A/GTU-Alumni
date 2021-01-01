@@ -1,0 +1,24 @@
+<app-header></app-header>
+
+
+<div id="student-grid-container" *ngIf="studentInfo">
+
+  <app-personal-info [userInfo]="studentInfo" [canEdit]="canEditTheProfile"
+                     (onProfilePictureUpload)="fetchStudentInfo(studentId)"></app-personal-info>
+
+  <app-hobbies [hobbiesStr]="studentInfo['hobby']"
+               (onHobbiesChange)="fetchStudentInfo(studentId)"
+               [canEdit]="canEditTheProfile"></app-hobbies>
+
+  <app-work-experience [workExperiences]="studentInfo['user_portfolios']"
+                       (onWorkExperiencesChange)="fetchStudentInfo(studentId)"
+                       [canEdit]="canEditTheProfile"></app-work-experience>
+
+<!--  <div class="portfolio">-->
+<!--    <h1>პორტფოლიო</h1>-->
+<!--  </div>-->
+
+</div>
+
+
+<!--<app-footer></app-footer>-->

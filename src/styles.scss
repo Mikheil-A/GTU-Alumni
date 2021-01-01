@@ -1,0 +1,72 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+// font families
+//@import "assets/fonts/fonts";
+
+@font-face {
+  font-family: bpg_dejavu_sans;
+  src: url(/assets/fonts/bpg_dejavu_sans.ttf);
+}
+
+@font-face {
+  font-family: uppercaseGeorgianLetters;
+  src: url(/assets/fonts/BPG_DejaVu_Sans_Web_Caps.ttf);
+}
+
+@font-face {
+  font-family: FrederickatheGreat;
+  src: url(/assets/fonts/FrederickatheGreat-Regular.ttf);
+}
+
+@font-face {
+  font-family: LeckerliOne;
+  src: url(/assets/fonts/LeckerliOne-Regular.ttf);
+}
+
+@font-face {
+  font-family: Tangerine;
+  src: url(/assets/fonts/Tangerine-Bold.ttf);
+}
+
+@font-face {
+  font-family: Sacramento;
+  src: url(/assets/fonts/Sacramento-Regular.ttf);
+}
+
+@font-face {
+  font-family: Catamaran;
+  src: url(/assets/fonts/Catamaran-Medium.ttf);
+}
+
+* {
+  font-family: bpg_dejavu_sans;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #e5e6ee;
+}
+
+button.big-button-style {
+  font-family: uppercaseGeorgianLetters !important;
+  color: #eeeeee;
+  background-color: #3b5f8c;
+  height: 40px;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #d9d9d9;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24), 0 0 2px rgba(0, 0, 0, 0.12);
+}
+
+.errorMessage {
+  color: #bb0000;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.link {
+  color: #4688f1;
+  cursor: pointer;
+}

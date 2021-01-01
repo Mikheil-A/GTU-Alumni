@@ -1,0 +1,49 @@
+#section-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.expansion-panel-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.editButton {
+  color: rgba(250, 190, 58, .7);
+}
+
+.editButton:hover {
+  color: rgba(250, 190, 58, 1);
+}
+
+.addButton {
+  color: #407d41;
+}
+
+.addButton {
+  color: green;
+}
+
+.deleteButton {
+  color: #f63636;
+}
+
+.deleteButton:hover {
+  color: #bb0000;
+}
+
+.editButton:disabled {
+  color: #a4a4a4
+}
+
+.addButton:disabled {
+  color: #a4a4a4
+}
+
+.deleteButton:disabled {
+  color: #a4a4a4
+}

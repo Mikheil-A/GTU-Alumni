@@ -1,0 +1,24 @@
+#filter-sidenav-container {
+  line-height: 20px;
+  font-size: 11px;
+  margin: 16px 30px;
+
+  header {
+    padding: 20px 24px 30px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    justify-content: center;
+
+    h1 {
+      line-height: 20px;
+      font-size: 13px;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+}

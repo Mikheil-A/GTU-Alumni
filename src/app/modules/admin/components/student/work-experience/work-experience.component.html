@@ -1,0 +1,48 @@
+<div id="section-title">
+  <h1>სამუშაო გამოცდილება</h1>
+
+  <button mat-button mat-icon-button
+          matTooltip="დამატება"
+          class="addButton"
+          (click)="openAddOrEditWorkExperienceDialog(null)"
+          [disabled]="!canEdit">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+
+
+<mat-accordion *ngIf="workExperiences.length">
+  <mat-expansion-panel *ngFor="let workExperience of workExperiences">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <b>{{workExperience['job_title']}}</b>
+        <span>&nbsp;at {{workExperience['company_name']}}</span>
+      </mat-panel-title>
+      <mat-panel-description>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="expansion-panel-content">
+      <span>{{workExperience['description']}}</span>
+      <span>{{workExperience['start_date']}} - {{workExperience['end_date']}}</span>
+
+      <div>
+        <button mat-button mat-icon-button
+                matTooltip="ჩასწორება"
+                class="editButton"
+                (click)="openAddOrEditWorkExperienceDialog(workExperience)"
+                [disabled]="!canEdit">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-button mat-icon-button
+                matTooltip="წაშლა"
+                class="deleteButton"
+                (click)="openConfirmDeletionDialog(workExperience)"
+                [disabled]="!canEdit">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+
+  </mat-expansion-panel>
+</mat-accordion>

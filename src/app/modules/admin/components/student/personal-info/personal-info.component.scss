@@ -1,0 +1,54 @@
+#personal-info-component {
+
+  & > div {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .main_image_div {
+    display: inline-block;
+    position: relative;
+    border: 1px dashed #cccccc;
+    padding: 15px;
+  }
+
+  .image_upload {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    display: none;
+  }
+
+  [type="file"] + label {
+    background: transparent;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: inherit;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    outline: none;
+    padding: 20px;
+    transition: all 0.3s;
+    vertical-align: middle;
+  }
+
+  .btn-2 {
+    cursor: pointer;
+    background-color: transparent;
+    border-radius: 50px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+
+    &:hover {
+      &::before {
+        right: 75%;
+      }
+    }
+  }
+}

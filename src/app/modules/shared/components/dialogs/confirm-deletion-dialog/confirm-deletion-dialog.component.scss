@@ -1,0 +1,14 @@
+#actions {
+  border-top: #cccccc 1px dashed;
+  padding: 15px 0 0 0;
+
+  button {
+    padding: 5px 30px;
+    margin: 10px;
+
+    &#delete-btn {
+      background-color: red;
+      color: white;
+    }
+  }
+}
