@@ -2,6 +2,11 @@
 > სტუ-ს კურსდამთავრებულთა საინფორმაციო სისტემა - [GTU-Alumni](https://mikheil-a.github.io/GTU_Alumni/)
 
 
+<!--
+  --Website is running at: http://localhost:4300
+  --Server is running at: http://localhost:3000
+  -->
+
 
 <!-- To deploy the app on ghpages:
   -- Checkout the branch you want to deploy;
