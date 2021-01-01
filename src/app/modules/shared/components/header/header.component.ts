@@ -12,7 +12,7 @@ import { User } from '../../../auth/components/authentication/sign-in/sign-in.co
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  loggedInUserData: object;
+  loggedInUserData: any;
 
   constructor(
     private _authService: AuthService,

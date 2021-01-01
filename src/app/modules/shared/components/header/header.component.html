@@ -1,38 +1,46 @@
 <div id="header-container">
-
   <div id="content">
-
     <a routerLink="">
-      <img src="assets/images/header/tsu-logo.png">
+      <img src="assets/images/header/gtu-logo.png" />
     </a>
 
     <div id="authentication" *ngIf="loggedInUserData; else redirectToAuthPage">
       <div id="user">
-
-        <p id="greetings">მოგესალმებით <span
-          id="username">{{loggedInUserData.name}} {{loggedInUserData['last_name']}}</span></p>
-        <img [src]="loggedInUserData['image_base64'] || '../../../../../assets/images/icon-student.png'" height="41"
-             width="41">
+        <p id="greetings">
+          მოგესალმებით
+          <span id="username">{{ loggedInUserData.username }}</span>
+        </p>
+        <img
+          [src]="
+            loggedInUserData['image_base64'] ||
+            '../../../../../assets/images/icon-student.png'
+          "
+          height="41"
+          width="41"
+        />
 
         <button mat-button mat-icon-button [matMenuTriggerFor]="menu">
           <mat-icon>arrow_drop_down</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="openChangePasswordDialog()">პაროლის ცვლილება</button>
+          <button mat-menu-item (click)="openChangePasswordDialog()">
+            პაროლის ცვლილება
+          </button>
         </mat-menu>
-
       </div>
 
-      <button mat-button mat-icon-button
-              matTooltip="სისტემიდან გასვლა" (click)="logout()">
-        <img src="assets/images/header/log-out.png">
+      <button
+        mat-button
+        mat-icon-button
+        matTooltip="სისტემიდან გასვლა"
+        (click)="logout()"
+      >
+        <img src="assets/images/header/log-out.png" />
       </button>
     </div>
 
     <ng-template #redirectToAuthPage>
       <a routerLink="/auth/sign-in">ავტორიზაცია</a>
     </ng-template>
-
   </div>
-
 </div>
