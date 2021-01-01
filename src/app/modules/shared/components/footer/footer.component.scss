@@ -15,38 +15,18 @@
 
   h3 {
     font-weight: bold;
-    color: rgba(255, 215, 0, .5);
+    color: rgba(255, 215, 0, 0.5);
     font-size: 24px;
   }
 
   h4 {
     font-weight: bold;
-    color: rgba(255, 215, 0, .5);
+    color: rgba(255, 215, 0, 0.5);
     font-size: 18px;
   }
 
-  .sponsors {
-    padding: 20px;
-    margin-bottom: 10px;
-  }
-
-  .sponsors a {
-    text-decoration: none;
-    margin: 0 10px;
-    display: inline-block;
-    color: rgba(255, 215, 0, .5);
-    font-size: 18px;
-    font-weight: bold;
-  }
-
-  .logos {
-    display: inline-block;
-    height: 32px;
-  }
-
-  .maxin {
-    height: 51px;
-    position: relative;
-    top: 11px;
+  h5 {
+    color: rgba(255, 215, 0, 0.5);
+    font-size: 15px;
   }
 }
