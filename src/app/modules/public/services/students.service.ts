@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { AuthService } from '../../auth/services/auth.service';
-import { User } from '../../auth/components/authentication/sign-in/sign-in.component';
 import * as moment from 'moment';
 
 @Injectable()
