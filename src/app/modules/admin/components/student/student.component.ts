@@ -12,7 +12,7 @@ import { User } from '../../../auth/components/authentication/sign-in/sign-in.co
 export class StudentComponent implements OnInit {
   studentId: string;
   studentInfo: object;
-  canEditTheProfile: boolean = false;
+  canEditTheProfile = false;
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -25,7 +25,8 @@ export class StudentComponent implements OnInit {
   ngOnInit() {
     // a user can only edit their profile
     this.canEditTheProfile =
-      this.studentId === JSON.parse(localStorage.getItem('user')).id;
+      this.studentId ===
+      JSON.stringify(JSON.parse(localStorage.getItem('user')).id);
     this.fetchStudentInfo(this.studentId);
   }
 

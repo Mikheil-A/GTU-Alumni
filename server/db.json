@@ -1,7 +1,7 @@
 {
   "students": [
     {
-      "id": 67,
+      "id": 1,
       "name": "Mikheil",
       "last_name": "Aleksidze",
       "email": "example.example@gtu.ge",
@@ -13,7 +13,7 @@
       "employed": true,
       "admin": true,
       "full_name": "Mikheil Aleksidze",
-      "hobby": null,
+      "hobby": "football,tennis",
       "profile_name": "student",
       "user_portfolios": [
         {

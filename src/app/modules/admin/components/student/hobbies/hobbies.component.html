@@ -1,18 +1,43 @@
-<h1>ჰობი ({{hobbiesArr.length}})</h1>
-
+<h1>ჰობი ({{ hobbiesArr.length }})</h1>
 
 <mat-form-field appearance="outline">
   <mat-label>ახალი ჰობი</mat-label>
-  <input color="input" type="text" [(ngModel)]="aNewHobby" matInput placeholder="ახალი ჰობი" [disabled]="!canEdit">
+  <input
+    color="input"
+    type="text"
+    [(ngModel)]="aNewHobby"
+    matInput
+    placeholder="ახალი ჰობი"
+    [disabled]="!canEdit"
+  />
 </mat-form-field>
-<button class="addButton" mat-button mat-icon-button matTooltip="ჰობის დამატება" matTooltipPosition="right" [disabled]="!aNewHobby && !canEdit">
+<button
+  class="addButton"
+  mat-button
+  mat-icon-button
+  matTooltip="ჰობის დამატება"
+  matTooltipPosition="right"
+  [disabled]="!aNewHobby && !canEdit"
+>
   <mat-icon (click)="addHobby()">add</mat-icon>
 </button>
 
-<div cdkDropList class="example-list" *ngIf="hobbiesArr.length > 0" (cdkDropListDropped)="onDragAndDrop($event)">
+<div
+  cdkDropList
+  class="example-list"
+  *ngIf="hobbiesArr.length > 0"
+  (cdkDropListDropped)="onDragAndDrop($event)"
+>
   <div class="example-box" *ngFor="let hobby of hobbiesArr; index as i" cdkDrag>
-    {{hobby}}
-    <button class="deleteButton" mat-button mat-icon-button matTooltip="ჰობის ამოშლა" matTooltipPosition="right" [disabled]="!canEdit">
+    {{ hobby }}
+    <button
+      class="deleteButton"
+      mat-button
+      mat-icon-button
+      matTooltip="ჰობის ამოშლა"
+      matTooltipPosition="right"
+      [disabled]="!canEdit"
+    >
       <mat-icon (click)="removeClickedHobby(i)">delete_outline</mat-icon>
     </button>
   </div>

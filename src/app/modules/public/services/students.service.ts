@@ -65,8 +65,10 @@ export class StudentsService {
     return this._httpClient.put(`/api/users/${data['user'].id}`, data);
   }
 
-  modifyHobbies(data: object) {
-    return this._httpClient.put(`/api/users/${data['user_id']}`, data);
+  modifyHobbies(data: any) {
+    return this._httpClient.patch(`/api/students/${data.user_id}`, {
+      hobby: data.hobby,
+    });
   }
 
   sendMail(data: object) {
