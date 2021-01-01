@@ -28,13 +28,7 @@ export class HeaderComponent implements OnInit {
   }
 
   private _getLoggedInUserData() {
-    // get user data by id
-    this._studentsService
-      .getStudent(JSON.parse(localStorage.getItem('user')).id)
-      .subscribe((users: User[]) => {
-        this._authService.saveUserSessionData(users[0]);
-        this.loggedInUserData = JSON.parse(localStorage.getItem('user'));
-      });
+    this.loggedInUserData = this._authService.getLoggedInUser;
   }
 
   logout() {

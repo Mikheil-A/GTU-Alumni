@@ -10,23 +10,15 @@ export class AuthService {
   constructor(private _httpClient: HttpClient, private _router: Router) {}
 
   login(requestData: User) {
-    const headers = new HttpHeaders({
-      // 'Content-Type': 'application/json'
-      // 'Authorization': '' // empty token at first
-    });
-    const options: object = {
-      // headers: headers,
-      observe: 'response', // to display the full response including headers
-    };
-
     // account credentials of Gigi
     // requestData = {
     //   "username": "giorgi.nikolaishvili25@gmail.com",
     //   "password": "gigi25"
     // };
-
     return this._httpClient
-      .get(`/api/accounts?username=${requestData.username}&password=${requestData.password}`)
+      .get(
+        `/api/accounts?username=${requestData.username}&password=${requestData.password}`,
+      )
       .pipe(
         map((users: User[]) => {
           if (users.length) {

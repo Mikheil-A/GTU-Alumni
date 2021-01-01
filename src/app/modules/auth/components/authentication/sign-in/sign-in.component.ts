@@ -39,7 +39,6 @@ export class SignInComponent implements OnInit {
         username: this.signInFormGroup.value.username,
         password: this.signInFormGroup.value.password,
       };
-
       this._authService.login(requestData).subscribe((res: User) => {
         if (res) {
           this.isUsernameOrPasswordIsIncorrectMsgDisplayed = false;
