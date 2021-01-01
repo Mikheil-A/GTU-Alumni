@@ -61,8 +61,18 @@ export class StudentsService {
     );
   }
 
-  addOrEditWorkExperience(data: object) {
-    return this._httpClient.patch(`/api/users/${data['user'].id}`, data);
+  editWorkExperience(data: any) {
+    return this._httpClient.patch(`/api/students/${data.studentId}`, {
+      user_portfolios: [
+        ...data.studentInfo.user_portfolios.filter(
+          (portfolio) => portfolio.id !== data.modifiedWorkExperienceId,
+        ),
+        {
+          ...data.modifiedWorkExperience,
+          id: data.modifiedWorkExperienceId,
+        },
+      ],
+    });
   }
 
   addWorkExperience(data: any) {

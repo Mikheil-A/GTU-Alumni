@@ -84,7 +84,7 @@ export class AddOrEditWorkExperienceDialogComponent implements OnInit {
   }
 
   editWorkExperience(reqData) {
-    this._studentsService.addOrEditWorkExperience(reqData).subscribe(() => {
+    this._studentsService.editWorkExperience(reqData).subscribe(() => {
       this._matDialogRef.close();
       this.onSave.emit();
     });
