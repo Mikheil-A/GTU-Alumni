@@ -1,74 +1,100 @@
 <mat-sidenav-container hasBackdrop="true">
-  <mat-sidenav #sidenav
-               mode="over" position="end"
-               [fixedInViewport]="true"
-               [autoFocus]="false" [disableClose]="false">
-
+  <mat-sidenav
+    #sidenav
+    mode="over"
+    position="end"
+    [fixedInViewport]="true"
+    [autoFocus]="false"
+    [disableClose]="false"
+  >
     <app-student-info-sidenav
-      *ngIf="sidenavId === 1" [studentId]="clickedStudentId" [studentInfo]="clickedStudentInfo">
+      *ngIf="sidenavId === 1"
+      [studentId]="clickedStudentId"
+      [studentInfo]="clickedStudentInfo"
+    >
     </app-student-info-sidenav>
 
-    <app-filter-grid-sidenav *ngIf="sidenavId === 2" (onFilter)="reFetchFilteredGrid($event)"></app-filter-grid-sidenav>
-
+    <app-filter-grid-sidenav
+      *ngIf="sidenavId === 2"
+      (onFilter)="reFetchFilteredGrid($event)"
+    ></app-filter-grid-sidenav>
   </mat-sidenav>
 
   <mat-sidenav-content>
-
     <app-header></app-header>
-
 
     <div id="table-container">
       <div id="table-header">
         <mat-form-field>
-          <input matInput (keyup)="applyFilter($event.target['value'])" placeholder="მოძებნეთ სახლი გვარი...">
+          <input
+            matInput
+            (keyup)="applyFilter($event.target['value'])"
+            placeholder="მოძებნეთ სახლი გვარი..."
+          />
         </mat-form-field>
-
 
         <button mat-button mat-icon-button (click)="openFilterGridSidenav()">
           <mat-icon color="primary">filter_list</mat-icon>
         </button>
 
         <button *ngIf="isAdmin" mat-button mat-icon-button matTooltip="ადმინთა სია">
-          <mat-checkbox (change)="_fetchGridData({})" class="example-margin" [(ngModel)]="admin"></mat-checkbox>
+          <mat-checkbox
+            (change)="_fetchGridData({})"
+            class="example-margin"
+            [(ngModel)]="admin"
+          ></mat-checkbox>
         </button>
 
-        <button mat-button mat-icon-button
-                (click)="openSendEmailDialog()"
-                color="warn"
-                matTooltip="ელ. ფოსტის გაგზავნა"
-                [disabled]="!isAdmin">
+        <button
+          mat-button
+          mat-icon-button
+          (click)="openSendEmailDialog()"
+          color="warn"
+          matTooltip="ელ. ფოსტის გაგზავნა"
+          [disabled]="!isAdmin"
+        >
           <mat-icon>mail_outline</mat-icon>
         </button>
 
-
-        <button mat-button mat-icon-button
-                class="addButton"
-                matTooltip="კურსდამთავრებულის დამატება"
-                (click)="openAddOrEditSeniorStudentDialog()"
-                [disabled]="!isAdmin">
+        <button
+          mat-button
+          mat-icon-button
+          class="addButton"
+          matTooltip="კურსდამთავრებულის დამატება"
+          (click)="openAddOrEditSeniorStudentDialog()"
+          [disabled]="!isAdmin"
+        >
           <mat-icon>add_circle</mat-icon>
         </button>
       </div>
 
-      <table mat-table [dataSource]="dataSource" matSort (matSortChange)="onTableSort($event)"
-             *ngIf="dataSource">
-
+      <table
+        mat-table
+        [dataSource]="dataSource"
+        matSort
+        (matSortChange)="onTableSort($event)"
+        *ngIf="dataSource"
+      >
         <!-- Checkbox Column -->
         <ng-container matColumnDef="checkboxSelect">
           <th mat-header-cell *matHeaderCellDef>
-            <mat-checkbox (change)="$event ? masterToggle() : null"
-                          [checked]="selection.hasValue() && isAllSelected()"
-                          [indeterminate]="selection.hasValue() && !isAllSelected()"
-                          [aria-label]="checkboxLabel()"
-                          [disabled]="!isAdmin">
+            <mat-checkbox
+              (change)="$event ? masterToggle() : null"
+              [checked]="selection.hasValue() && isAllSelected()"
+              [indeterminate]="selection.hasValue() && !isAllSelected()"
+              [aria-label]="checkboxLabel()"
+              [disabled]="!isAdmin"
+            >
             </mat-checkbox>
           </th>
           <td mat-cell *matCellDef="let row">
-            <mat-checkbox (click)="$event.stopPropagation()"
-                          (change)="$event ? selection.toggle(row) : null"
-                          [checked]="selection.isSelected(row)"
-                          [aria-label]="checkboxLabel(row)"
-                          [disabled]="!isAdmin">
+            <mat-checkbox
+              (click)="$event.stopPropagation()"
+              (change)="$event ? selection.toggle(row) : null"
+              [checked]="selection.isSelected(row)"
+              [aria-label]="checkboxLabel(row)"
+              [disabled]="!isAdmin"
+            >
             </mat-checkbox>
           </td>
         </ng-container>
@@ -84,61 +110,70 @@
         <ng-container matColumnDef="full_name">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>სახელი, გვარი</th>
           <td mat-cell *matCellDef="let row">
-            <span [ngClass]="{'link': isAdmin || isDisabled(row.id)}" (click)="openStudentInfoSideNav(row.id)">
-              {{row.full_name}}</span>
+            <span
+              [ngClass]="{ link: isAdmin || isDisabled(row.id) }"
+              (click)="openStudentInfoSideNav(row.id)"
+            >
+              {{ row.full_name }}</span
+            >
           </td>
         </ng-container>
         <ng-container *ngIf="admin" matColumnDef="birth_date">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>დაბადების თარიღი</th>
           <td mat-cell *matCellDef="let row">
-            <span>{{row.birth_date}}</span>
+            <span>{{ row.birth_date }}</span>
           </td>
         </ng-container>
 
         <ng-container *ngIf="!admin" matColumnDef="apply_date">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>დასაწყისი</th>
-          <td mat-cell *matCellDef="let row"> {{row.apply_date}}</td>
+          <td mat-cell *matCellDef="let row">{{ row.apply_date }}</td>
         </ng-container>
 
         <ng-container *ngIf="!admin" matColumnDef="graduate_date">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>დასასრული</th>
-          <td mat-cell *matCellDef="let row"> {{row.graduate_date}}</td>
+          <td mat-cell *matCellDef="let row">{{ row.graduate_date }}</td>
         </ng-container>
 
         <ng-container matColumnDef="editAndDeleteIcons">
           <th mat-header-cell *matHeaderCellDef></th>
           <td mat-cell *matCellDef="let row">
-            <button mat-button mat-icon-button
-                    matTooltip="ჩასწორება"
-                    class="editButton"
-                    (click)="openAddOrEditSeniorStudentDialog(row)"
-                    [disabled]="!isAdmin && !isDisabled(row.id)">
+            <button
+              mat-button
+              mat-icon-button
+              matTooltip="ჩასწორება"
+              class="editButton"
+              (click)="openAddOrEditSeniorStudentDialog(row)"
+              [disabled]="!isAdmin && !isDisabled(row.id)"
+            >
               <mat-icon>edit</mat-icon>
             </button>
-            <button mat-button mat-icon-button
-                    class="deleteButton"
-                    matTooltip="წაშლა"
-                    (click)="openConfirmDeletionDialog(row.id)"
-                    [disabled]="!isAdmin && !isDisabled(row.id)">
+            <button
+              mat-button
+              mat-icon-button
+              class="deleteButton"
+              matTooltip="წაშლა"
+              (click)="openConfirmDeletionDialog(row.id)"
+              [disabled]="!isAdmin && !isDisabled(row.id)"
+            >
               <mat-icon>delete</mat-icon>
             </button>
           </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       </table>
 
-      <mat-paginator [length]="length"
-                     [pageSize]="pageSize"
-                     [pageSizeOptions]="pageSizeOptions"
-                     (page)="onPagingChange($event)">
+      <mat-paginator
+        [length]="length"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="onPagingChange($event)"
+      >
       </mat-paginator>
-
     </div>
 
-
     <app-footer></app-footer>
-
   </mat-sidenav-content>
 </mat-sidenav-container>

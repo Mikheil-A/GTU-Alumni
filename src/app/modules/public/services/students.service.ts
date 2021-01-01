@@ -1,17 +1,11 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {catchError} from 'rxjs/operators';
-import {AuthService} from '../../auth/services/auth.service';
-
-
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
+import { AuthService } from '../../auth/services/auth.service';
 
 @Injectable()
 export class StudentsService {
-
-  constructor(private _httpClient: HttpClient,
-              private _authService: AuthService) {
-  }
-
+  constructor(private _httpClient: HttpClient, private _authService: AuthService) {}
 
   /**
    * TODO: create an interceptor:
@@ -21,8 +15,9 @@ export class StudentsService {
    * https://stackoverflow.com/questions/46017245/how-to-handle-unauthorized-requestsstatus-with-401-or-403-with-new-httpclient
    */
 
-  search(data: object) {
-    return this._httpClient.post('/api/users/list', data);
+  search(data?: object) {
+    // return this._httpClient.post('/api/users/list', data);
+    return this._httpClient.get('/api/students');
   }
 
   add(data: object) {
@@ -39,7 +34,7 @@ export class StudentsService {
 
   getStudent(studentId: string) {
     return this._httpClient.get(`/api/users/${studentId}/edit`).pipe(
-      catchError(this._authService.handleUnauthorizedError()) // TODO: do it using interceptor to check in every http request!!!!!
+      catchError(this._authService.handleUnauthorizedError()), // TODO: do it using interceptor to check in every http request!!!!!
     );
   }
 

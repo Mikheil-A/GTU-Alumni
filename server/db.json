@@ -1,0 +1,105 @@
+{
+  "students": [
+    {
+      "id": 67,
+      "name": "მსსს",
+      "last_name": "სდ",
+      "email": "manana.khachidze@tsu.ge",
+      "birth_date": "2019-06-30",
+      "apply_date": "2019-07-21",
+      "graduate_date": "2019-07-20",
+      "profile_id": 1,
+      "created_at": "2019-07-26T13:03:52.313Z",
+      "employed": true,
+      "full_name": "მსსს სდ",
+      "hobby": null,
+      "profile_name": "student"
+    },
+    {
+      "id": 66,
+      "name": "ტესტ",
+      "last_name": "სტუდენტ",
+      "email": "abulashvili.daviti@gmail.com",
+      "birth_date": "2019-06-30",
+      "apply_date": "2019-07-01",
+      "graduate_date": "2019-07-02",
+      "profile_id": 1,
+      "created_at": "2019-07-25T06:42:52.242Z",
+      "employed": true,
+      "full_name": "ტესტ სტუდენტ",
+      "hobby": null,
+      "profile_name": "student"
+    },
+    {
+      "id": 65,
+      "name": "ტესტ",
+      "last_name": "სტუდენტაძე",
+      "email": "zurab.nozadze.upwork@gmail.com",
+      "birth_date": "2019-07-01",
+      "apply_date": "2019-07-23",
+      "graduate_date": "2019-07-24",
+      "profile_id": 1,
+      "created_at": "2019-07-24T20:34:53.811Z",
+      "employed": true,
+      "full_name": "ტესტ სტუდენტაძე",
+      "hobby": "dunkman032@gmail.com",
+      "profile_name": "student"
+    },
+    {
+      "id": 64,
+      "name": "პაპუნა",
+      "last_name": "ქარჩავა",
+      "email": "papuna.karchava.test@tsu.com",
+      "birth_date": "1977-12-31",
+      "apply_date": "1995-12-31",
+      "graduate_date": "2000-01-01",
+      "profile_id": 1,
+      "created_at": "2019-07-24T20:09:43.895Z",
+      "employed": true,
+      "full_name": "პაპუნა ქარჩავა",
+      "hobby": null,
+      "profile_name": "student"
+    },
+    {
+      "id": 60,
+      "name": "დავით",
+      "last_name": "ყიფიანი",
+      "email": "davit123321@gmail.com",
+      "birth_date": "2019-06-30",
+      "apply_date": "2019-07-24",
+      "graduate_date": "2019-07-22",
+      "profile_id": 1,
+      "created_at": "2019-07-24T17:56:47.597Z",
+      "employed": false,
+      "full_name": "დავით ყიფიანი",
+      "hobby": null,
+      "profile_name": "student"
+    },
+    {
+      "page": 1,
+      "limit": 5,
+      "is_employed": null,
+      "start_date": null,
+      "end_date": null,
+      "input": "",
+      "admin": false,
+      "id": 68
+    }
+  ],
+  "cars": [
+    {
+      "id": 1,
+      "name": "audi"
+    },
+    {
+      "id": 2,
+      "name": "bmw"
+    }
+  ],
+  "accounts": [
+    {
+      "username": "admin",
+      "password": "admin"
+    }
+  ]
+}

@@ -1,17 +1,22 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatDialog, MatPaginator, MatPaginatorIntl, MatSidenav, MatSort, MatTableDataSource} from '@angular/material';
-import {AddOrEditSeniorStudentDialogComponent} from "../../../admin/components/dialogs/add-or-edit-senior-student-dialog/add-or-edit-senior-student-dialog.component";
-import {ConfirmDeletionDialogComponent} from "../../../shared/components/dialogs/confirm-deletion-dialog/confirm-deletion-dialog.component";
-import {NgxSpinnerService} from "ngx-spinner";
-import {StudentsMock} from "../../mocks/students.mock";
-import {StudentsService} from "../../services/students.service";
-import {MatSnackBarService} from "../../../shared/services/mat-snack-bar.service";
-import {AuthService} from "../../../auth/services/auth.service";
-import {SelectionModel} from '@angular/cdk/collections';
-import {SendEmailDialogComponent} from "./send-email-dialog/send-email-dialog.component";
-import {PageEvent} from '@angular/material/paginator';
-
-
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {
+  MatDialog,
+  MatPaginator,
+  MatPaginatorIntl,
+  MatSidenav,
+  MatSort,
+  MatTableDataSource,
+} from '@angular/material';
+import { AddOrEditSeniorStudentDialogComponent } from '../../../admin/components/dialogs/add-or-edit-senior-student-dialog/add-or-edit-senior-student-dialog.component';
+import { ConfirmDeletionDialogComponent } from '../../../shared/components/dialogs/confirm-deletion-dialog/confirm-deletion-dialog.component';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { StudentsMock } from '../../mocks/students.mock';
+import { StudentsService } from '../../services/students.service';
+import { MatSnackBarService } from '../../../shared/services/mat-snack-bar.service';
+import { AuthService } from '../../../auth/services/auth.service';
+import { SelectionModel } from '@angular/cdk/collections';
+import { SendEmailDialogComponent } from './send-email-dialog/send-email-dialog.component';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-students',
@@ -20,7 +25,7 @@ import {PageEvent} from '@angular/material/paginator';
   providers: [
     // For overwriting/changing default properties of paginator
     // {provide: MatPaginatorIntl, useClass: StudentsComponent}
-  ]
+  ],
 })
 export class StudentsComponent extends MatPaginatorIntl implements OnInit {
   @ViewChild('sidenav') private _sidenav: MatSidenav;
@@ -34,8 +39,14 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
 
   admin = false;
 
-
-  displayedColumns: string[] = ['checkboxSelect', 'employed', 'full_name', 'apply_date', 'graduate_date', 'editAndDeleteIcons'];
+  displayedColumns: string[] = [
+    'checkboxSelect',
+    'employed',
+    'full_name',
+    'apply_date',
+    'graduate_date',
+    'editAndDeleteIcons',
+  ];
   dataSource: MatTableDataSource<any>;
   selection = new SelectionModel(true, []);
 
@@ -43,7 +54,6 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
   length = 100;
   pageSize = 5;
   pageSizeOptions: number[] = [5, 10, 25, 100];
-
 
   gridFilterData: object = {
     // paginator
@@ -59,21 +69,22 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
     start_date: null, // milliseconds
     end_date: null, // milliseconds
 
-    input: '' // string, searches in full name
+    input: '', // string, searches in full name
   };
   tableLength: number = null;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-
-  constructor(private _matDialog: MatDialog,
-              private _ngxSpinnerService: NgxSpinnerService,
-              private _studentsMock: StudentsMock,
-              private _studentsService: StudentsService,
-              private _matSnackBarService: MatSnackBarService,
-              private pageEvent: PageEvent,
-              public authService: AuthService) {
+  constructor(
+    private _matDialog: MatDialog,
+    private _ngxSpinnerService: NgxSpinnerService,
+    private _studentsMock: StudentsMock,
+    private _studentsService: StudentsService,
+    private _matSnackBarService: MatSnackBarService,
+    private pageEvent: PageEvent,
+    public authService: AuthService,
+  ) {
     super();
     // this._setPaginatorInGeorgian();
     // this.dataSource = new MatTableDataSource(this._studentsMock.students);
@@ -82,13 +93,12 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
   ngOnInit() {
     this._fetchGridData(this.gridFilterData);
     // this._fetchGridData({});
-    this.enteredUserId = parseInt(localStorage.getItem('user_id'))
+    this.enteredUserId = parseInt(localStorage.getItem('user_id'));
   }
 
   private _determineAdmin(): void {
     this.isAdmin = this.authService.isAdmin;
   }
-
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
@@ -97,15 +107,15 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
     return numSelected === numRows;
   }
 
-  isDisabled (id) {
-    return id === this.enteredUserId
+  isDisabled(id) {
+    return id === this.enteredUserId;
   }
 
   /** Selects all rows if they are not all selected; otherwise clear selection. */
   masterToggle() {
-    this.isAllSelected() ?
-      this.selection.clear() :
-      this.dataSource.data.forEach(row => this.selection.select(row));
+    this.isAllSelected()
+      ? this.selection.clear()
+      : this.dataSource.data.forEach((row) => this.selection.select(row));
   }
 
   /** The label for the checkbox on the passed row */
@@ -126,54 +136,67 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
   private _fetchGridData(filterByData: object) {
     this._ngxSpinnerService.show();
     if (!filterByData['page']) {
-      filterByData['page'] = 1
+      filterByData['page'] = 1;
     }
     if (!filterByData['limit']) {
-      filterByData['limit'] = 5
+      filterByData['limit'] = 5;
     }
 
     if (this.admin) {
       this.displayedColumns = ['checkboxSelect', 'full_name', 'birth_date', 'editAndDeleteIcons'];
     } else {
-      this.displayedColumns = ['checkboxSelect', 'employed', 'full_name', 'apply_date', 'graduate_date', 'editAndDeleteIcons'];
+      this.displayedColumns = [
+        'checkboxSelect',
+        'employed',
+        'full_name',
+        'apply_date',
+        'graduate_date',
+        'editAndDeleteIcons',
+      ];
     }
 
-    filterByData['admin'] = this.admin
+    filterByData['admin'] = this.admin;
 
-    this._studentsService.search(filterByData).subscribe((res) => {
-      const data = res['data'];
-      this.dataSource = new MatTableDataSource(data.users);
+    this._studentsService.search().subscribe(
+      (students: any[]) => {
+        // const data = res['data'];
+        this.dataSource = new MatTableDataSource(students);
 
-      // this.dataSource.paginator = this.paginator;
+        this.dataSource.paginator = this.paginator;
 
-      this.dataSource.sort = this.sort;
-      this.length = data.length;
-      this.pageSize = data.limit;
-      this.gridFilterData['limit'] = res['data'].limit;
-      this.tableLength = res['data'].length;
+        this.dataSource.sort = this.sort;
+        this.length = students.length;
+        this.pageSize = 1;
+        // this.gridFilterData['limit'] = res['data'].limit;
+        this.tableLength = students.length;
 
-      this._determineAdmin();
-    }, () => {
-    }, () => {
-      this._ngxSpinnerService.hide();
-    });
+        this._determineAdmin();
+      },
+      (err) => {
+        console.log('err', err);
+      },
+      () => {
+        setTimeout(() => {
+          this._ngxSpinnerService.hide();
+        }, 1000);
+      },
+    );
   }
 
   openSendEmailDialog() {
     const dialogRef = this._matDialog.open(SendEmailDialogComponent, {
-      'data': this.selection
+      data: this.selection,
     });
 
     const sendSubscription = dialogRef.componentInstance.onSend.subscribe(() => {
-      this._fetchGridData({property: 'created_at'});
+      this._fetchGridData({ property: 'created_at' });
       this._matSnackBarService.openSnackBar('ელ. ფოსტა წარმატებით გაიგზავნა ');
     });
 
     dialogRef.afterClosed().subscribe(() => {
       sendSubscription.unsubscribe();
-    })
+    });
   }
-
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -183,12 +206,12 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
     }
   }
 
-//TODO ურექვესთოდ
+  //TODO ურექვესთოდ
   openStudentInfoSideNav(id: string) {
     if (this.authService.isLoggedIn && (this.isDisabled(id) || this.isAdmin)) {
       this.sidenavId = 1;
       this.clickedStudentId = id;
-      this._studentsService.getStudent(this.clickedStudentId).subscribe(res => {
+      this._studentsService.getStudent(this.clickedStudentId).subscribe((res) => {
         this.clickedStudentInfo = res['data'];
         this._sidenav.open();
       });
@@ -197,7 +220,7 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
 
   openAddOrEditSeniorStudentDialog(clickedRecordData: object = null) {
     const dialogRef = this._matDialog.open(AddOrEditSeniorStudentDialogComponent, {
-      'data': clickedRecordData
+      data: clickedRecordData,
     });
     dialogRef.afterClosed().subscribe((isAdded: boolean) => {
       if (isAdded) {
@@ -205,12 +228,12 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
         this._fetchGridData({});
         this._matSnackBarService.openSnackBar('სტუდენტი წარმატებით შეინახა');
       }
-    })
+    });
   }
 
   openConfirmDeletionDialog(studentId: number) {
     const dialogRef = this._matDialog.open(ConfirmDeletionDialogComponent, {
-      'data': null
+      data: null,
     });
 
     const deleteSubscription = dialogRef.componentInstance.onDelete.subscribe(() => {
@@ -227,7 +250,7 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
       //   this._fetchGridData(this._gridFilterData);
       // }
       deleteSubscription.unsubscribe();
-    })
+    });
   }
 
   openFilterGridSidenav() {
