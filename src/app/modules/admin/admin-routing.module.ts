@@ -10,7 +10,8 @@ import {AdminGuard} from "./guards/admin.guard";
 
 
 const routes: Routes = [
-  {path: 'student/:id', component: StudentComponent, canActivate: [AdminGuard]}
+  // {path: 'student/:id', component: StudentComponent, canActivate: [AdminGuard]}
+  {path: 'student/:id', component: StudentComponent}
 ];
 
 
