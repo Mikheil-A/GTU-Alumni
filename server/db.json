@@ -5,15 +5,15 @@
       "name": "Mikheil",
       "last_name": "Aleksidze",
       "email": "example.example@gtu.ge",
-      "birth_date": "2019-06-30",
+      "birth_date": "04-05-1997",
       "apply_date": "2019-07-21",
-      "graduate_date": "2019-07-20",
+      "graduate_date": "2021-07-20",
       "profile_id": 1,
       "created_at": "2019-07-26T13:03:52.313Z",
       "employed": true,
       "admin": true,
       "full_name": "Mikheil Aleksidze",
-      "hobby": "football,tennis",
+      "hobby": "basketball,football,tennis",
       "profile_name": "student",
       "user_portfolios": [
         {
@@ -25,9 +25,9 @@
           "end_date": "present"
         },
         {
-          "company_name": "companyyyyy",
+          "company_name": "company",
           "job_title": "position",
-          "description": "desc",
+          "description": "description",
           "start_date": "2021-01-04T20:00:00.000Z",
           "end_date": "2021-01-29T20:00:00.000Z",
           "id": 2
@@ -53,7 +53,7 @@
       "id": 65,
       "name": "ტესტ",
       "last_name": "სტუდენტაძე",
-      "email": "zurab.nozadze.upwork@gmail.com",
+      "email": "test.studentadzek@gmail.com",
       "birth_date": "2019-07-01",
       "apply_date": "2019-07-23",
       "graduate_date": "2019-07-24",
@@ -61,48 +61,23 @@
       "created_at": "2019-07-24T20:34:53.811Z",
       "employed": true,
       "full_name": "ტესტ სტუდენტაძე",
-      "hobby": "dunkman032@gmail.com",
-      "profile_name": "student"
-    },
-    {
-      "id": 64,
-      "name": "პაპუნა",
-      "last_name": "ქარჩავა",
-      "email": "papuna.karchava.test@tsu.com",
-      "birth_date": "1977-12-31",
-      "apply_date": "1995-12-31",
-      "graduate_date": "2000-01-01",
-      "profile_id": 1,
-      "created_at": "2019-07-24T20:09:43.895Z",
-      "employed": true,
-      "full_name": "პაპუნა ქარჩავა",
-      "hobby": null,
+      "hobby": "dunking",
       "profile_name": "student"
     },
     {
       "id": 60,
-      "name": "დავით",
-      "last_name": "ყიფიანი",
-      "email": "davit123321@gmail.com",
+      "name": "tom",
+      "last_name": "hanks",
+      "email": "tom.hanks@gmail.com",
       "birth_date": "2019-06-30",
       "apply_date": "2019-07-24",
       "graduate_date": "2019-07-22",
       "profile_id": 1,
       "created_at": "2019-07-24T17:56:47.597Z",
       "employed": false,
-      "full_name": "დავით ყიფიანი",
+      "full_name": "tom hanks",
       "hobby": null,
       "profile_name": "student"
-    }
-  ],
-  "cars": [
-    {
-      "id": 1,
-      "name": "audi"
-    },
-    {
-      "id": 2,
-      "name": "bmw"
     }
   ],
   "accounts": [
