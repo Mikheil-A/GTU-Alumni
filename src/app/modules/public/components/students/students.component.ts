@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   MatDialog,
-  MatPaginator,
   MatPaginatorIntl,
   MatSidenav,
   MatSort,
@@ -44,6 +43,7 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
     'checkboxSelect',
     'employed',
     'full_name',
+    'birth_date',
     'apply_date',
     'graduate_date',
     'editAndDeleteIcons',
@@ -52,9 +52,9 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
   selection = new SelectionModel(true, []);
 
   // MatPaginator Inputs
-  length = 100;
-  pageSize = 5;
-  pageSizeOptions: number[] = [5, 10, 25, 100];
+  // length = 100;
+  // pageSize = 5;
+  // pageSizeOptions: number[] = [5, 10, 25, 100];
 
   gridFilterData: object = {
     // paginator
@@ -72,9 +72,8 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
 
     input: '', // string, searches in full name
   };
-  tableLength: number = null;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  // @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
@@ -94,7 +93,7 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
   ngOnInit() {
     this._fetchGridData(this.gridFilterData);
     // this._fetchGridData({});
-    this.enteredUserId = parseInt(localStorage.getItem('user_id'));
+    this.enteredUserId = parseInt(localStorage.getItem('user_id'), 10);
   }
 
   private _determineAdmin(): void {
@@ -138,46 +137,15 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
 
   private _fetchGridData(filterByData: object) {
     this._ngxSpinnerService.show();
-    if (!filterByData['page']) {
-      filterByData['page'] = 1;
-    }
-    if (!filterByData['limit']) {
-      filterByData['limit'] = 5;
-    }
-
-    if (this.admin) {
-      this.displayedColumns = [
-        'checkboxSelect',
-        'full_name',
-        'birth_date',
-        'editAndDeleteIcons',
-      ];
-    } else {
-      this.displayedColumns = [
-        'checkboxSelect',
-        'employed',
-        'full_name',
-        'apply_date',
-        'graduate_date',
-        'editAndDeleteIcons',
-      ];
-    }
-
-    filterByData['admin'] = this.admin;
-
+    filterByData = {
+      ...filterByData,
+      admin: this.admin,
+    };
     this._studentsService.search(filterByData).subscribe(
       (students: any[]) => {
-        // const data = res['data'];
         this.dataSource = new MatTableDataSource(students);
-
-        this.dataSource.paginator = this.paginator;
-
         this.dataSource.sort = this.sort;
-        this.length = students.length;
-        this.pageSize = 100;
         // this.gridFilterData['limit'] = res['data'].limit;
-        this.tableLength = students.length;
-
         this._determineAdmin();
       },
       () => {},

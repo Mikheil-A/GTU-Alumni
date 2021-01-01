@@ -93,16 +93,6 @@
       "full_name": "დავით ყიფიანი",
       "hobby": null,
       "profile_name": "student"
-    },
-    {
-      "page": 1,
-      "limit": 5,
-      "is_employed": null,
-      "start_date": null,
-      "end_date": null,
-      "input": "",
-      "admin": false,
-      "id": 68
     }
   ],
   "cars": [
