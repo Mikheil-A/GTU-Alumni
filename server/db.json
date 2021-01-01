@@ -17,6 +17,7 @@
       "profile_name": "student",
       "user_portfolios": [
         {
+          "id": 1,
           "job_title": "programmer",
           "company_name": "google",
           "description": "just coding",

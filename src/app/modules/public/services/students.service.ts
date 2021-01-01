@@ -65,6 +65,14 @@ export class StudentsService {
     return this._httpClient.put(`/api/users/${data['user'].id}`, data);
   }
 
+  deleteWorkExperience(data: any) {
+    return this._httpClient.patch(`/api/students/${data.studentId}`, {
+      user_portfolios: data.studentInfo.user_portfolios.filter(
+        (portfolio) => portfolio.id !== data.workExperienceId,
+      ),
+    });
+  }
+
   modifyHobbies(data: any) {
     return this._httpClient.patch(`/api/students/${data.user_id}`, {
       hobby: data.hobby,
