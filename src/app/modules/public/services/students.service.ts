@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { AuthService } from '../../auth/services/auth.service';
 import { User } from '../../auth/components/authentication/sign-in/sign-in.component';
+import * as moment from 'moment';
 
 @Injectable()
 export class StudentsService {
@@ -19,9 +20,27 @@ export class StudentsService {
    * https://stackoverflow.com/questions/46017245/how-to-handle-unauthorized-requestsstatus-with-401-or-403-with-new-httpclient
    */
 
-  search(data?: object) {
+  search(data?: any) {
+    console.log('data', data);
     // return this._httpClient.post('/api/users/list', data);
-    return this._httpClient.get('/api/students');
+    let requestUrl = '/api/students?';
+    if (data.admin) {
+      requestUrl = requestUrl.concat(`admin=${data.admin}`);
+    }
+    if (data.is_employed) {
+      requestUrl = requestUrl.concat(`&is_employed=${data.is_employed}`);
+    }
+    if (data.start_date) {
+      requestUrl = requestUrl.concat(
+        `&apply_date_gte=${moment(data.start_date).format('YYYY-MM-DD')}`,
+      );
+    }
+    if (data.end_date) {
+      requestUrl = requestUrl.concat(
+        `&graduate_date_lte=${moment(data.end_date).format('YYYY-MM-DD')}`,
+      );
+    }
+    return this._httpClient.get(requestUrl);
   }
 
   add(data: object) {

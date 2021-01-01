@@ -124,7 +124,9 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
     if (!row) {
       return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
     }
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${
+      row.position + 1
+    }`;
   }
 
   // private _setPaginatorInGeorgian() {
@@ -144,7 +146,12 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
     }
 
     if (this.admin) {
-      this.displayedColumns = ['checkboxSelect', 'full_name', 'birth_date', 'editAndDeleteIcons'];
+      this.displayedColumns = [
+        'checkboxSelect',
+        'full_name',
+        'birth_date',
+        'editAndDeleteIcons',
+      ];
     } else {
       this.displayedColumns = [
         'checkboxSelect',
@@ -158,7 +165,7 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
 
     filterByData['admin'] = this.admin;
 
-    this._studentsService.search().subscribe(
+    this._studentsService.search(filterByData).subscribe(
       (students: any[]) => {
         // const data = res['data'];
         this.dataSource = new MatTableDataSource(students);
@@ -187,10 +194,14 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
       data: this.selection,
     });
 
-    const sendSubscription = dialogRef.componentInstance.onSend.subscribe(() => {
-      this._fetchGridData({ property: 'created_at' });
-      this._matSnackBarService.openSnackBar('ელ. ფოსტა წარმატებით გაიგზავნა ');
-    });
+    const sendSubscription = dialogRef.componentInstance.onSend.subscribe(
+      () => {
+        this._fetchGridData({ property: 'created_at' });
+        this._matSnackBarService.openSnackBar(
+          'ელ. ფოსტა წარმატებით გაიგზავნა ',
+        );
+      },
+    );
 
     dialogRef.afterClosed().subscribe(() => {
       sendSubscription.unsubscribe();
@@ -210,17 +221,22 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
     if (this.authService.isLoggedIn && (this.isDisabled(id) || this.isAdmin)) {
       this.sidenavId = 1;
       this.clickedStudentId = id;
-      this._studentsService.getStudent(this.clickedStudentId).subscribe((res: User[]) => {
-        this.clickedStudentInfo = res[0];
-        this._sidenav.open();
-      });
+      this._studentsService
+        .getStudent(this.clickedStudentId)
+        .subscribe((res: User[]) => {
+          this.clickedStudentInfo = res[0];
+          this._sidenav.open();
+        });
     }
   }
 
   openAddOrEditSeniorStudentDialog(clickedRecordData: object = null) {
-    const dialogRef = this._matDialog.open(AddOrEditSeniorStudentDialogComponent, {
-      data: clickedRecordData,
-    });
+    const dialogRef = this._matDialog.open(
+      AddOrEditSeniorStudentDialogComponent,
+      {
+        data: clickedRecordData,
+      },
+    );
     dialogRef.afterClosed().subscribe((isAdded: boolean) => {
       if (isAdded) {
         // this._fetchGridData(this._gridFilterData);
@@ -235,14 +251,16 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
       data: null,
     });
 
-    const deleteSubscription = dialogRef.componentInstance.onDelete.subscribe(() => {
-      // this._fetchGridData(this._gridFilterData);
-      this._studentsService.delete(studentId).subscribe(() => {
-        dialogRef.close();
-        this._fetchGridData({});
-        this._matSnackBarService.openSnackBar('სტუდენტი წარმატებით წაიშალა');
-      });
-    });
+    const deleteSubscription = dialogRef.componentInstance.onDelete.subscribe(
+      () => {
+        // this._fetchGridData(this._gridFilterData);
+        this._studentsService.delete(studentId).subscribe(() => {
+          dialogRef.close();
+          this._fetchGridData({});
+          this._matSnackBarService.openSnackBar('სტუდენტი წარმატებით წაიშალა');
+        });
+      },
+    );
 
     dialogRef.afterClosed().subscribe((isDeleted: boolean) => {
       // if (isDeleted) {
