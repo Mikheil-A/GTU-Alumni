@@ -1,11 +1,9 @@
-import {Component, Input, OnChanges} from '@angular/core';
-
-
+import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-student-info-sidenav',
   templateUrl: './student-info-sidenav.component.html',
-  styleUrls: ['./student-info-sidenav.component.scss']
+  styleUrls: ['./student-info-sidenav.component.scss'],
 })
 export class StudentInfoSidenavComponent implements OnChanges {
   @Input() studentId: string;
@@ -13,14 +11,11 @@ export class StudentInfoSidenavComponent implements OnChanges {
 
   // studentInfo: object;
 
-
-  constructor() {
-  }
+  constructor() {}
 
   ngOnChanges() {
     // this._fetchStudent();
   }
-
 
   // private _fetchStudent() {
   //   this._studentsService.getStudent(this.studentId).subscribe(res => {
