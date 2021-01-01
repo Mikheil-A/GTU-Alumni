@@ -17,6 +17,7 @@ import { AuthService } from '../../../auth/services/auth.service';
 import { SelectionModel } from '@angular/cdk/collections';
 import { SendEmailDialogComponent } from './send-email-dialog/send-email-dialog.component';
 import { PageEvent } from '@angular/material/paginator';
+import { User } from '../../../auth/components/authentication/sign-in/sign-in.component';
 
 @Component({
   selector: 'app-students',
@@ -211,8 +212,8 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
     if (this.authService.isLoggedIn && (this.isDisabled(id) || this.isAdmin)) {
       this.sidenavId = 1;
       this.clickedStudentId = id;
-      this._studentsService.getStudent(this.clickedStudentId).subscribe((res) => {
-        this.clickedStudentInfo = res['data'];
+      this._studentsService.getStudent(this.clickedStudentId).subscribe((res: User[]) => {
+        this.clickedStudentInfo = res[0];
         this._sidenav.open();
       });
     }

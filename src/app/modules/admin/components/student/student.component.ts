@@ -1,24 +1,24 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {NgxSpinnerService} from "ngx-spinner";
-import {StudentsService} from "../../../public/services/students.service";
-
-
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { StudentsService } from '../../../public/services/students.service';
+import { User } from '../../../auth/components/authentication/sign-in/sign-in.component';
 
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',
-  styleUrls: ['./student.component.scss']
+  styleUrls: ['./student.component.scss'],
 })
 export class StudentComponent implements OnInit {
   studentId: string;
   studentInfo: object;
   canEditTheProfile: boolean = false;
 
-
-  constructor(private _activatedRoute: ActivatedRoute,
-              private _ngxSpinnerService: NgxSpinnerService,
-              private _studentsService: StudentsService) {
+  constructor(
+    private _activatedRoute: ActivatedRoute,
+    private _ngxSpinnerService: NgxSpinnerService,
+    private _studentsService: StudentsService,
+  ) {
     this._getStudentId();
   }
 
@@ -28,7 +28,6 @@ export class StudentComponent implements OnInit {
     this.fetchStudentInfo(this.studentId);
   }
 
-
   private _getStudentId() {
     this.studentId = this._activatedRoute.snapshot.paramMap.get('id');
   }
@@ -36,15 +35,21 @@ export class StudentComponent implements OnInit {
   fetchStudentInfo(id: string) {
     this._ngxSpinnerService.show();
 
-    this._studentsService.getStudent(id).subscribe((res) => {
-      this.studentInfo = res['data'];
-    }, (err) => {
-      // if (err.status === 401) {
-      //   this._ngxSpinnerService.hide();
-      //   this._router.navigate(['auth/sign-in']);
-      // }
-    }, () => {
-      this._ngxSpinnerService.hide();
-    });
+    this._studentsService.getStudent(id).subscribe(
+      (res: User[]) => {
+        this.studentInfo = res[0];
+      },
+      (err) => {
+        // if (err.status === 401) {
+        //   this._ngxSpinnerService.hide();
+        //   this._router.navigate(['auth/sign-in']);
+        // }
+      },
+      () => {
+        setTimeout(() => {
+          this._ngxSpinnerService.hide();
+        }, 1000);
+      },
+    );
   }
 }

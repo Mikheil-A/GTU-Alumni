@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { AuthService } from '../../auth/services/auth.service';
+import { User } from '../../auth/components/authentication/sign-in/sign-in.component';
 
 @Injectable()
 export class StudentsService {
@@ -32,8 +33,8 @@ export class StudentsService {
     return this._httpClient.delete(`/api/users/${studentId}`);
   }
 
-  getStudent(studentId: string) {
-    return this._httpClient.get(`/api/users/${studentId}/edit`).pipe(
+  getStudent(userId: string) {
+    return this._httpClient.get(`/api/students/?id=${userId}`).pipe(
       catchError(this._authService.handleUnauthorizedError()), // TODO: do it using interceptor to check in every http request!!!!!
     );
   }

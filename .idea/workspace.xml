@@ -4,6 +4,13 @@
     <list default="true" id="6264d4ae-d470-463e-8e4d-7ee2311254bd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/admin/components/student/student.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/admin/components/student/student.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/auth/components/authentication/sign-in/sign-in.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/auth/components/authentication/sign-in/sign-in.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/auth/components/authentication/sign-in/sign-in.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/auth/components/authentication/sign-in/sign-in.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/auth/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/auth/services/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/public/components/students/students.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/public/components/students/students.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/public/services/students.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/public/services/students.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/shared/components/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/shared/components/header/header.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +85,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1609486491042</updated>
-      <workItem from="1609486492298" duration="5269000" />
+      <workItem from="1609486492298" duration="5721000" />
+      <workItem from="1609492262278" duration="1640000" />
     </task>
     <servers />
   </component>
@@ -122,6 +130,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

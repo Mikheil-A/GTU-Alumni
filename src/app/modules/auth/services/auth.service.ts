@@ -1,43 +1,42 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {catchError, map} from "rxjs/operators";
-import {Router} from "@angular/router";
-import {throwError} from "rxjs";
-
-
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, map } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { throwError } from 'rxjs';
+import { User } from '../components/authentication/sign-in/sign-in.component';
 
 @Injectable()
 export class AuthService {
+  constructor(private _httpClient: HttpClient, private _router: Router) {}
 
-  constructor(private _httpClient: HttpClient,
-              private _router: Router) {
-  }
-
-
-  login(requestData: { email: string; password: string }) {
+  login(requestData: User) {
     const headers = new HttpHeaders({
       // 'Content-Type': 'application/json'
       // 'Authorization': '' // empty token at first
     });
     const options: object = {
       // headers: headers,
-      observe: 'response' // to display the full response including headers
+      observe: 'response', // to display the full response including headers
     };
 
+    // account credentials of Gigi
     // requestData = {
-    //   "email": "giorgi.nikolaishvili25@gmail.com",
+    //   "username": "giorgi.nikolaishvili25@gmail.com",
     //   "password": "gigi25"
     // };
 
-    return this._httpClient.post('/api/auth/login', requestData, options).pipe(
-      map(res => {
-        if (res['status'] === 200) {
-          this.saveUserSessionData(res['body'].token, res['body'].user_id);
-          return res['body'];
-        }
-      }),
-      catchError(this.handleUnauthorizedError())
-    );
+    return this._httpClient
+      .get(`/api/accounts?username=${requestData.username}&password=${requestData.password}`)
+      .pipe(
+        map((users: User[]) => {
+          if (users.length) {
+            this.saveUserSessionData(users[0]);
+            return users[0];
+          }
+          return null;
+        }),
+        catchError(this.handleUnauthorizedError()),
+      );
   }
 
   logout() {
@@ -60,18 +59,9 @@ export class AuthService {
     };
   }
 
-  saveUserSessionData(token?: string, userId?: number, loggedInUserData?: object) {
-    if (token) {
-      localStorage.setItem('access_token', token);
-    }
-    if (userId) {
-      localStorage.setItem('user_id', userId.toString());
-    }
-    if (loggedInUserData) {
-      localStorage.setItem('userData', JSON.stringify(loggedInUserData));
-      // if (loggedInUserData['profile']) {
-      //   localStorage.setItem('profile_id', JSON.stringify(loggedInUserData['profile'].id));
-      // }
+  saveUserSessionData(user: User) {
+    if (user) {
+      localStorage.setItem('user', JSON.stringify(user));
     }
   }
 
@@ -94,8 +84,7 @@ export class AuthService {
       setTimeout(() => {
         profile = JSON.parse(localStorage.getItem('userData'));
       }, 750);
-      if (profile)
-        return profile.profile_id === 2;
+      if (profile) return profile.profile_id === 2;
     } else {
       return profile.profile_id === 2;
     }

@@ -1,29 +1,34 @@
 <form [formGroup]="signInFormGroup" (ngSubmit)="submit()">
-
   <header>
-    <img src="assets/images/tsu-logo.png">
-<!--    <p>TSU-CyberCompAlu</p>-->
-    <br/>
+    <img src="assets/images/tsu-logo.png" />
+    <!--    <p>TSU-CyberCompAlu</p>-->
+    <br />
     <p>კურსდამთავრებულთა ბაზა</p>
   </header>
 
   <div id="form-controls">
     <mat-form-field appearance="outline">
-      <mat-label>ელ. ფოსტა</mat-label>
-      <input type="email" formControlName="email" matInput placeholder="ელ. ფოსტა" required>
+      <mat-label>მომხმარებლის სახელი</mat-label>
+      <input
+        type="username"
+        formControlName="username"
+        matInput
+        placeholder="მომხმარებლის სახელი"
+        required
+      />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>პაროლი</mat-label>
-      <input type="password" formControlName="password" matInput placeholder="პაროლი" required>
+      <input type="password" formControlName="password" matInput placeholder="პაროლი" required />
     </mat-form-field>
   </div>
 
   <footer>
-    <span class="errorMessage"
-          *ngIf="isUsernameOrPasswordIsIncorrectMsgDisplayed">მომხმარებლის სახელი ან პაროლი არასწორია.</span>
+    <span class="errorMessage" *ngIf="isUsernameOrPasswordIsIncorrectMsgDisplayed"
+      >მომხმარებლის სახელი ან პაროლი არასწორია.</span
+    >
 
     <button class="big-button-style" mat-button type="submit">შესვლა</button>
   </footer>
-
 </form>
