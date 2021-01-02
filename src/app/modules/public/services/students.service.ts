@@ -20,7 +20,6 @@ export class StudentsService {
    */
 
   search(data?: any) {
-    console.log('data', data);
     // return this._httpClient.post('/api/users/list', data);
     let requestUrl = '/api/students?';
     if (data.admin) {

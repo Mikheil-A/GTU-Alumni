@@ -7,7 +7,7 @@ import { Component, Input, OnChanges } from '@angular/core';
 })
 export class StudentInfoSidenavComponent implements OnChanges {
   @Input() studentId: string;
-  @Input() studentInfo: string;
+  @Input() studentInfo: any;
 
   // studentInfo: object;
 
