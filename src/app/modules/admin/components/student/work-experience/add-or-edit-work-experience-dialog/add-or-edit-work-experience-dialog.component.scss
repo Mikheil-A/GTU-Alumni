@@ -1,4 +1,9 @@
-form {
-  display: flex;
-  flex-direction: column;
+#work-experience-dialog-container {
+  padding: 0 30px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+  }
 }
