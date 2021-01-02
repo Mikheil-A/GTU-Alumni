@@ -80,14 +80,14 @@
       "profile_name": "student"
     },
     {
-      "name": "ნამე===",
+      "name": "ნამე",
       "last_name": "ლასტნამე",
       "email": "test@gmail.com",
       "birth_date": "2021-01-12T20:00:00.000Z",
       "apply_date": "2021-01-22T20:00:00.000Z",
       "graduate_date": "2021-01-20T20:00:00.000Z",
       "profile_id": 1,
-      "employed": true,
+      "employed": false,
       "username": "test",
       "id": 67
     }

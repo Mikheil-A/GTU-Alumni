@@ -1,11 +1,8 @@
 <div class="maindiv" *ngIf="studentInfo">
   <header>
     <h1>
-      <a
-        [routerLink]="'/student/' + studentId"
-        matTooltip="მეტის ნახვა"
-      >
-      {{ studentInfo.name }} {{ studentInfo.last_name }}
+      <a [routerLink]="'/student/' + studentId" matTooltip="მეტის ნახვა">
+        {{ studentInfo.name }} {{ studentInfo.last_name }}
       </a>
     </h1>
   </header>
@@ -32,7 +29,7 @@
       </li>
       <li>ჰობი: {{ studentInfo.hobby }}</li>
       <li>პროფილის სტატუსი: {{ studentInfo.name }}</li>
-      <li>დამთავრება: {{ studentInfo.graduate_date }}</li>
+      <li>დამთავრება: {{ studentInfo.graduate_date | date: 'dd-MM-yyyy' }}</li>
     </ul>
   </div>
 </div>

@@ -1,6 +1,4 @@
 #dialog-container {
-  //padding: 12px 24px;
-
   h1 {
     font-size: 15px;
     text-align: left;
@@ -14,6 +12,6 @@
   form {
     display: grid;
     grid-gap: 20px;
-    grid-template-areas: "firstName lastName" "address birthDate" "applyDate graduateDate" "userStatus employmentStatus" "submitBtn submitBtn";
+    grid-template-areas: 'firstName lastName' 'address birthDate' 'applyDate graduateDate' 'userStatus employmentStatus' 'submitBtn submitBtn';
   }
 }
