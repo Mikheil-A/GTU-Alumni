@@ -1,21 +1,23 @@
 <div class="maindiv" *ngIf="studentInfo">
   <header>
-    <h1>{{ studentInfo.name }} {{ studentInfo.last_name }}</h1>
-
-    <a
-      class="nBtn"
-      [routerLink]="'/student/' + studentId"
-      matTooltip="სტუდენტის ინფორმაცია"
-    >
-      <mat-icon color="accent">info</mat-icon>
-    </a>
+    <h1>
+      <a
+        [routerLink]="'/student/' + studentId"
+        matTooltip="მეტის ნახვა"
+      >
+      {{ studentInfo.name }} {{ studentInfo.last_name }}
+      </a>
+    </h1>
   </header>
 
   <div class="main">
     <div class="imageDiv">
       <img
         class="image"
-        [src]="studentInfo['image_base64'] || '../../../../../../assets/images/icon-student.png'"
+        [src]="
+          studentInfo['image_base64'] ||
+          '../../../../../../assets/images/icon-student.png'
+        "
         alt="პროფილის სურათი"
         width="70"
         height="70"
@@ -25,7 +27,8 @@
     <ul>
       <li>ელ. მისამართი: {{ studentInfo.email }}</li>
       <li>
-        დასაქმების სტატუსი: {{ studentInfo.employed ? 'დასაქმებულია' : 'არ არის დასაქმებული' }}
+        დასაქმების სტატუსი:
+        {{ studentInfo.employed ? 'დასაქმებულია' : 'არ არის დასაქმებული' }}
       </li>
       <li>ჰობი: {{ studentInfo.hobby }}</li>
       <li>პროფილის სტატუსი: {{ studentInfo.name }}</li>

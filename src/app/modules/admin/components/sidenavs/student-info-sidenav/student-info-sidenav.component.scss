@@ -5,14 +5,13 @@ header {
   flex-direction: row;
   align-items: center;
   padding: 20px;
-  color: white;
 
   a {
-    position: absolute;
-    right: 50px;
+    color: white;
     text-decoration: none;
-    margin-left: 60px;
-    color: gray;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
