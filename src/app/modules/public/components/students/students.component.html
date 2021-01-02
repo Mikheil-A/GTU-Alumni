@@ -29,7 +29,7 @@
           <input
             matInput
             (keyup)="applyFilter($event.target['value'])"
-            placeholder="მოძებნეთ სახელი გვარი..."
+            placeholder="მოძებნეთ გვარით..."
           />
         </mat-form-field>
 
@@ -38,7 +38,6 @@
         </button>
 
         <button
-          *ngIf="isAdmin"
           mat-button
           mat-icon-button
           matTooltip="ადმინთა სია"
@@ -104,7 +103,7 @@
           </td>
         </ng-container>
 
-        <ng-container *ngIf="!admin" matColumnDef="employed">
+        <ng-container matColumnDef="employed">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>
             დასაქმების სტატუსი
           </th>
@@ -138,12 +137,12 @@
           </td>
         </ng-container>
 
-        <ng-container *ngIf="!admin" matColumnDef="apply_date">
+        <ng-container matColumnDef="apply_date">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>დასაწყისი</th>
           <td mat-cell *matCellDef="let row">{{ row.apply_date }}</td>
         </ng-container>
 
-        <ng-container *ngIf="!admin" matColumnDef="graduate_date">
+        <ng-container matColumnDef="graduate_date">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>დასასრული</th>
           <td mat-cell *matCellDef="let row">{{ row.graduate_date }}</td>
         </ng-container>

@@ -178,10 +178,6 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
   }
 
   //TODO ურექვესთოდ
@@ -253,13 +249,13 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
     this._fetchGridData(this.gridFilterData);
   }
 
-  onPagingChange(e) {
+  /*  onPagingChange(e) {
     this.gridFilterData['page'] = e.pageIndex + 1;
 
     this.gridFilterData['limit'] = e.pageSize;
 
     this._fetchGridData(this.gridFilterData); // FIXME backend not working
-  }
+  }*/
 
   onTableSort(e) {
     this.gridFilterData['property'] = e.active;
