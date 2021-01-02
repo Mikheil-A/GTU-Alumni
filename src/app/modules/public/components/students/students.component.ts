@@ -58,8 +58,8 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
 
   gridFilterData: object = {
     // paginator
-    page: 1,
-    limit: 5,
+    // page: 1,
+    // limit: 5,
 
     // sorting
     // property: 'created_at',
@@ -82,7 +82,7 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
     private _studentsMock: StudentsMock,
     private _studentsService: StudentsService,
     private _matSnackBarService: MatSnackBarService,
-    private pageEvent: PageEvent,
+    // private pageEvent: PageEvent,
     public authService: AuthService,
   ) {
     super();
