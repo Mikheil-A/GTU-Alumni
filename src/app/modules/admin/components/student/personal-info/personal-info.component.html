@@ -1,13 +1,24 @@
 <div id="personal-info-component" *ngIf="userInfo">
-
   <h1>პირადი ინფორმაცია</h1>
 
   <div>
-
     <div class="main_image_div">
-      <img [src]="userInfo['image_base64'] || '../../../../../../assets/images/icon-student.png'" alt="test" width="300">
+      <img
+        [src]="
+          userInfo['image_base64'] ||
+          '../../../../../../assets/images/icon-student.png'
+        "
+        alt="profile photo"
+        height="290"
+        width="auto"
+      />
       <label for="file" class="btn-2">
-        <input class="image_upload" type="file" id="file" (change)="onFileUpload($event)"/>
+        <input
+          class="image_upload"
+          type="file"
+          id="file"
+          (change)="onFileUpload($event)"
+        />
         <mat-icon>cloud_upload</mat-icon>
       </label>
     </div>
@@ -15,14 +26,14 @@
     <div class="info">
       <ul>
         <li>
-          <p>მომხმარებლის სახელი: {{userInfo.name}} {{userInfo['last_name']}}</p>
+          <p>
+            მომხმარებლის სახელი: {{ userInfo.name }} {{ userInfo['last_name'] }}
+          </p>
         </li>
         <li>
-          <p>ელ.ფოსტა: {{userInfo['email']}}</p>
+          <p>ელ.ფოსტა: {{ userInfo['email'] }}</p>
         </li>
       </ul>
     </div>
-
   </div>
-
 </div>
