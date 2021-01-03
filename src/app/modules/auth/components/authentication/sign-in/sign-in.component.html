@@ -1,9 +1,8 @@
 <form [formGroup]="signInFormGroup" (ngSubmit)="submit()">
   <header>
-    <img src="assets/images/tsu-logo.png" />
-    <!--    <p>TSU-CyberCompAlu</p>-->
+    <img src="assets/images/auth/gtu-logo-small.jpg" alt="gtu logo" />
     <br />
-    <p>კურსდამთავრებულთა ბაზა</p>
+    <p>GTU - Alumni</p>
   </header>
 
   <div id="form-controls">
@@ -20,15 +19,22 @@
 
     <mat-form-field appearance="outline">
       <mat-label>პაროლი</mat-label>
-      <input type="password" formControlName="password" matInput placeholder="პაროლი" required />
+      <input
+        type="password"
+        formControlName="password"
+        matInput
+        placeholder="პაროლი"
+        required
+      />
     </mat-form-field>
   </div>
 
   <footer>
-    <span class="errorMessage" *ngIf="isUsernameOrPasswordIsIncorrectMsgDisplayed"
+    <span
+      class="errorMessage"
+      *ngIf="isUsernameOrPasswordIsIncorrectMsgDisplayed"
       >მომხმარებლის სახელი ან პაროლი არასწორია.</span
     >
-
     <button class="big-button-style" mat-button type="submit">შესვლა</button>
   </footer>
 </form>
