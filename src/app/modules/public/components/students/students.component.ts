@@ -135,7 +135,7 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
   //   this.previousPageLabel = 'წინა გვერდი';
   // }
 
-  private _fetchGridData(filterByData: object) {
+  _fetchGridData(filterByData: object) {
     this._ngxSpinnerService.show();
     filterByData = {
       ...filterByData,
