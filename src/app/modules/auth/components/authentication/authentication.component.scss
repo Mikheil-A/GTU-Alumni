@@ -5,7 +5,12 @@
   height: 100vh;
   width: 100%;
   //background: url('https://d3ui957tjb5bqd.cloudfront.net/images/screenshots/products/0/8/8905/red-rocks-park-o.jpg') -25px -50px;
-  background-image: linear-gradient(to right bottom, rgba(17, 98, 192, 0.2), rgba(17, 98, 192, 0.2)), url("../../../../../assets/images/auth/ganivi.jpg");
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(17, 98, 192, 0.2),
+      rgba(17, 98, 192, 0.2)
+    ),
+    url('../../../../../assets/images/auth/gtu-location.jpg');
   position: fixed;
   top: 0;
   z-index: 0;
