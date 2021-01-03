@@ -19,40 +19,14 @@ header {
   width: 100%;
   display: flex;
   justify-content: center;
-  //background-color: #3b5f8c;
 }
 
 .main {
-  height: 100vh;
-  //background-color: #5b90d6;
-
+  padding: 0 20px;
   ul {
     li {
       margin-bottom: 10px;
     }
-  }
-}
-
-.maindiv {
-  width: 20vw;
-  overflow-x: hidden;
-}
-
-@media (min-width: 800px) {
-  .maindiv {
-    width: 30vw;
-  }
-}
-
-@media (min-width: 600px) {
-  .maindiv {
-    width: 35vw;
-  }
-}
-
-@media (min-width: 400px) {
-  .maindiv {
-    width: 50vw;
   }
 }
 

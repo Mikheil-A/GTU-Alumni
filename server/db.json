@@ -35,6 +35,40 @@
       ]
     },
     {
+      "id": 2,
+      "name": "Michael",
+      "last_name": "Alex",
+      "email": "michael.alex@gtu.ge",
+      "birth_date": "04-05-1997",
+      "apply_date": "2019-07-21",
+      "graduate_date": "2021-07-20",
+      "profile_id": 1,
+      "created_at": "2019-07-26T13:03:52.313Z",
+      "employed": true,
+      "admin": true,
+      "full_name": "Michael Alex",
+      "hobby": "coding,ufc",
+      "profile_name": "student",
+      "user_portfolios": [
+        {
+          "id": 1,
+          "job_title": "programmer",
+          "company_name": "google",
+          "description": "just coding",
+          "start_date": "2022-04-05",
+          "end_date": "present"
+        },
+        {
+          "company_name": "company",
+          "job_title": "position",
+          "description": "description",
+          "start_date": "2021-01-04T20:00:00.000Z",
+          "end_date": "2021-01-29T20:00:00.000Z",
+          "id": 2
+        }
+      ]
+    },
+    {
       "id": 66,
       "name": "ტესტ",
       "last_name": "სტუდენტ",
