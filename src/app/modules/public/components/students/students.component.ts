@@ -57,23 +57,11 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
   // pageSizeOptions: number[] = [5, 10, 25, 100];
 
   gridFilterData: object = {
-    // paginator
-    // page: 1,
-    // limit: 5,
-
-    // sorting
-    // property: 'created_at',
-    // direction: 'desc', // asc
-
     is_employed: null, // true/false
-
     start_date: null, // milliseconds
     end_date: null, // milliseconds
-
-    input: '', // string, searches in full name
   };
 
-  // @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
@@ -145,7 +133,6 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
       (students: any[]) => {
         this.dataSource = new MatTableDataSource(students);
         this.dataSource.sort = this.sort;
-        // this.gridFilterData['limit'] = res['data'].limit;
         this._determineAdmin();
       },
       () => {},
@@ -248,14 +235,6 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
 
     this._fetchGridData(this.gridFilterData);
   }
-
-  /*  onPagingChange(e) {
-    this.gridFilterData['page'] = e.pageIndex + 1;
-
-    this.gridFilterData['limit'] = e.pageSize;
-
-    this._fetchGridData(this.gridFilterData); // FIXME backend not working
-  }*/
 
   onTableSort(e) {
     this.gridFilterData['property'] = e.active;
