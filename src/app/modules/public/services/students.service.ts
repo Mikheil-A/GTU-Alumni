@@ -21,16 +21,12 @@ export class StudentsService {
 
   search(data?: any) {
     console.log('filter data', data);
-    // return this._httpClient.post('/api/users/list', data);
     let requestUrl = '/api/students?';
     if (data.admin) {
       requestUrl = requestUrl.concat(`admin=${data.admin}`);
     }
-    if (data.input) {
-      requestUrl = requestUrl.concat(`last_name=${data.input}`);
-    }
     if (data.is_employed) {
-      requestUrl = requestUrl.concat(`&is_employed=${data.is_employed}`);
+      requestUrl = requestUrl.concat(`&employed=${data.is_employed}`);
     }
     if (data.start_date) {
       requestUrl = requestUrl.concat(

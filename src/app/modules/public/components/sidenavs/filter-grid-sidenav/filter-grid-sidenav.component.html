@@ -3,6 +3,15 @@
     <h1>მონაცემების ფილტრაცია</h1>
   </header>
 
+  <div id="refresh-icon-container">
+    <img
+      src="assets/images/round-refresh-24px.svg"
+      alt="refresh-icon"
+      matTooltip="გასუფთავება"
+      (click)="clearForm()"
+    />
+  </div>
+
   <form [formGroup]="filterDataFormGroup" (ngSubmit)="load()">
     <label>დროის ინტერვალი</label>
     <mat-form-field appearance="outline">
