@@ -4,9 +4,9 @@
       "id": 1,
       "name": "Mikheil",
       "last_name": "Aleksidze",
-      "email": "example.example@gtu.ge",
+      "email": "mikheil.aleksidze@gtu.ge",
       "birth_date": "04-05-1997",
-      "apply_date": "2019-07-21",
+      "apply_date": "2019-07-04",
       "graduate_date": "2021-07-20",
       "profile_id": 1,
       "created_at": "2019-07-26T13:03:52.313Z",
@@ -18,16 +18,16 @@
       "user_portfolios": [
         {
           "id": 1,
-          "job_title": "programmer",
-          "company_name": "google",
-          "description": "just coding",
+          "job_title": "Web Developer",
+          "company_name": "Leaf LLC",
+          "description": "Web საიტების შექმნა",
           "start_date": "2022-04-05",
           "end_date": "present"
         },
         {
-          "company_name": "company",
-          "job_title": "position",
-          "description": "description",
+          "company_name": "SmartTech",
+          "job_title": "Programmer",
+          "description": "I'm coding",
           "start_date": "2021-01-04T20:00:00.000Z",
           "end_date": "2021-01-29T20:00:00.000Z",
           "id": 2
@@ -69,7 +69,40 @@
       ]
     },
     {
-      "id": 66,
+      "id": 3,
+      "name": "ორნელა",
+      "last_name": "მუტი",
+      "email": "Ornella.Muti@gmail.com",
+      "birth_date": "1955-03-08T21:00:00.000Z",
+      "apply_date": "2019-07-23",
+      "graduate_date": "2019-07-24",
+      "profile_id": 1,
+      "created_at": "2019-07-24T20:34:53.811Z",
+      "employed": true,
+      "full_name": "ტესტ სტუდენტაძე",
+      "hobby": "dunking",
+      "profile_name": "student",
+      "username": "Ornella.Muti",
+      "user_portfolios": []
+    },
+    {
+      "id": 4,
+      "name": "tom",
+      "last_name": "hanks",
+      "email": "tom.hanks@gmail.com",
+      "birth_date": "2019-06-30",
+      "apply_date": "2019-07-24",
+      "graduate_date": "2019-07-22",
+      "profile_id": 1,
+      "created_at": "2019-07-24T17:56:47.597Z",
+      "employed": false,
+      "full_name": "tom hanks",
+      "hobby": null,
+      "profile_name": "student",
+      "user_portfolios": []
+    },
+    {
+      "id": 5,
       "name": "ტესტ",
       "last_name": "სტუდენტ",
       "email": "abulashvili.daviti@gmail.com",
@@ -84,36 +117,6 @@
       "profile_name": "student"
     },
     {
-      "id": 65,
-      "name": "ტესტ",
-      "last_name": "სტუდენტაძე",
-      "email": "test.studentadzek@gmail.com",
-      "birth_date": "2019-07-01",
-      "apply_date": "2019-07-23",
-      "graduate_date": "2019-07-24",
-      "profile_id": 1,
-      "created_at": "2019-07-24T20:34:53.811Z",
-      "employed": true,
-      "full_name": "ტესტ სტუდენტაძე",
-      "hobby": "dunking",
-      "profile_name": "student"
-    },
-    {
-      "id": 60,
-      "name": "tom",
-      "last_name": "hanks",
-      "email": "tom.hanks@gmail.com",
-      "birth_date": "2019-06-30",
-      "apply_date": "2019-07-24",
-      "graduate_date": "2019-07-22",
-      "profile_id": 1,
-      "created_at": "2019-07-24T17:56:47.597Z",
-      "employed": false,
-      "full_name": "tom hanks",
-      "hobby": null,
-      "profile_name": "student"
-    },
-    {
       "name": "ნამე",
       "last_name": "ლასტნამე",
       "email": "test@gmail.com",
@@ -123,7 +126,7 @@
       "profile_id": 1,
       "employed": false,
       "username": "test",
-      "id": 67
+      "id": 6
     }
   ],
   "accounts": [

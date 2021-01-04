@@ -55,19 +55,34 @@ export class AddOrEditSeniorStudentDialogComponent implements OnInit {
 
   private _initializeForm() {
     this.formGroup = new FormGroup({
-      name: new FormControl(this._inputFieldsInitialValues.name, Validators.required),
-      last_name: new FormControl(this._inputFieldsInitialValues.last_name, Validators.required),
+      name: new FormControl(
+        this._inputFieldsInitialValues.name,
+        Validators.required,
+      ),
+      last_name: new FormControl(
+        this._inputFieldsInitialValues.last_name,
+        Validators.required,
+      ),
       email: new FormControl(this._inputFieldsInitialValues.email, [
         Validators.required,
         Validators.email,
       ]),
-      birth_date: new FormControl(this._inputFieldsInitialValues.birth_date, Validators.required),
-      apply_date: new FormControl(this._inputFieldsInitialValues.apply_date, Validators.required),
+      birth_date: new FormControl(
+        this._inputFieldsInitialValues.birth_date,
+        Validators.required,
+      ),
+      apply_date: new FormControl(
+        this._inputFieldsInitialValues.apply_date,
+        Validators.required,
+      ),
       graduate_date: new FormControl(
         this._inputFieldsInitialValues.graduate_date,
         Validators.required,
       ),
-      profile_id: new FormControl(this._inputFieldsInitialValues.profile_id, Validators.required),
+      profile_id: new FormControl(
+        this._inputFieldsInitialValues.profile_id,
+        Validators.required,
+      ),
       employed: new FormControl(this._inputFieldsInitialValues.employed), // 1 student, 2 - admin
     });
   }
@@ -94,7 +109,7 @@ export class AddOrEditSeniorStudentDialogComponent implements OnInit {
     // });
 
     if (this.formGroup.valid) {
-      let requestData = this.formGroup.value;
+      const requestData = this.formGroup.value;
       requestData['username'] = this.formGroup.value.email.substring(
         0,
         this.formGroup.value.email.indexOf('@'),
@@ -107,9 +122,14 @@ export class AddOrEditSeniorStudentDialogComponent implements OnInit {
           this.closeDialog(true);
         });
       } else {
-        this._studentsService.add(requestData).subscribe(() => {
-          this.closeDialog(true);
-        });
+        this._studentsService
+          .add({
+            ...requestData,
+            user_portfolios: [],
+          })
+          .subscribe(() => {
+            this.closeDialog(true);
+          });
       }
     }
   }

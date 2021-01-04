@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { StudentsService } from '../../../public/services/students.service';
 import { User } from '../../../auth/components/authentication/sign-in/sign-in.component';
+import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-student',
@@ -18,15 +19,13 @@ export class StudentComponent implements OnInit {
     private _activatedRoute: ActivatedRoute,
     private _ngxSpinnerService: NgxSpinnerService,
     private _studentsService: StudentsService,
+    private _authService: AuthService,
   ) {
     this._getStudentId();
   }
 
   ngOnInit() {
-    // a user can only edit their profile
-    this.canEditTheProfile =
-      this.studentId ===
-      JSON.stringify(JSON.parse(localStorage.getItem('user')).id);
+    this.canEditTheProfile = this._authService.isAdmin;
     this.fetchStudentInfo(this.studentId);
   }
 
