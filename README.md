@@ -2,6 +2,12 @@
 > სტუ-ს კურსდამთავრებულთა საინფორმაციო სისტემა - [GTU-Alumni](https://mikheil-a.github.io/GTU_Alumni/)
 
 
+
+<!--
+  --Start json-server: `npm run start:server`
+  --Start the angular app: `npm run start:dev`
+  -->
+
 <!--
   --Website is running at: http://localhost:4300
   --Server is running at: http://localhost:3000
