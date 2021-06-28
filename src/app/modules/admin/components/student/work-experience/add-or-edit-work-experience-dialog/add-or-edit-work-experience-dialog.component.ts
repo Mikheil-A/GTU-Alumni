@@ -92,7 +92,7 @@ export class AddOrEditWorkExperienceDialogComponent implements OnInit {
 
   submit() {
     let reqData: any = {
-      studentId: JSON.parse(localStorage.getItem('user')).id,
+      studentId: this._studentInfo.id,
       studentInfo: this._studentInfo,
     };
 

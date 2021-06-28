@@ -79,10 +79,11 @@ export class StudentsService {
         ...data.studentInfo.user_portfolios,
         {
           ...data.newWorkExperience,
-          id:
-            data.studentInfo.user_portfolios[
-              data.studentInfo.user_portfolios.length - 1
-            ].id + 1,
+          id: data.studentInfo.user_portfolios.length
+            ? data.studentInfo.user_portfolios[
+                data.studentInfo.user_portfolios.length - 1
+              ].id + 1
+            : 1,
         },
       ],
     });
