@@ -40,7 +40,7 @@ export class StudentsComponent extends MatPaginatorIntl implements OnInit {
   admin = false;
 
   displayedColumns: string[] = [
-    'checkboxSelect',
+    // 'checkboxSelect',
     'employed',
     'full_name',
     'birth_date',
